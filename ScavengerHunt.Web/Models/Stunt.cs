@@ -35,7 +35,13 @@ namespace ScavengerHunt.Web.Models
         public virtual string Title { get; set; }
 
         [JsonIgnore]
-        public virtual string Description { get; set; }
+        public virtual string ShortDescription { get; set; }
+
+        [JsonIgnore]
+        public virtual string LongDescription { get; set; }
+
+        [JsonIgnore]
+        public virtual string Slideshow { get; set; }
 
         public Stunt()
         {

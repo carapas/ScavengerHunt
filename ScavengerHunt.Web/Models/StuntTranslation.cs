@@ -17,7 +17,9 @@ namespace ScavengerHunt.Web.Models
         public virtual Stunt Stunt { get; set; }
         public string Language { get; set; }
         public string Title { get; set; }
-        public string Description { get; set; }
+        public string ShortDescription { get; set; }
+        public string LongDescription { get; set; }
+        public string Slideshow { get; set; }
 
         public StuntTranslation()
         {

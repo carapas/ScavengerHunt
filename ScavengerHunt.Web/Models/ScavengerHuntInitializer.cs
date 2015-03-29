@@ -99,11 +99,11 @@ namespace ScavengerHunt.Web.Models
                              {
                                  new Stunt() { Keyword = "Markdown", MaxScore = 5, Type = StuntTypeEnum.Text, Translations = new Collection<StuntTranslation>()
                                                                                                             {
-                                                                                                                new StuntTranslation() { Language = "en", Title = "Support for Markdown!", Description = "You red that **right**! You can use [Markdown syntax](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) right here!"}
+                                                                                                                new StuntTranslation() { Language = "en", Title = "Support for Markdown!", ShortDescription = "You red that **right**! You can use [Markdown syntax](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) right here!"}
                                                                                                             }},
                                  new Stunt() { Keyword = "Flag", MaxScore = 10, Type = StuntTypeEnum.Flag, JudgeNotes = "flag1234", Translations = new Collection<StuntTranslation>()
                                                                                                             {
-                                                                                                                new StuntTranslation() { Language = "en", Title = "Support for flags!", Description = "Flags is a special kind of stunt that's judged automatically. Just set the answer in the Judge Notes! This one is \"flag1324\"" }
+                                                                                                                new StuntTranslation() { Language = "en", Title = "Support for flags!", ShortDescription = "Flags is a special kind of stunt that's judged automatically. Just set the answer in the Judge Notes! This one is \"flag1324\"" }
                                                                                                             }},
                                  new Stunt() { Keyword = "Zelda", MaxScore = 15, Type = StuntTypeEnum.Flag, JudgeNotes = "Potato", Translations = new Collection<StuntTranslation>()
                                                                                                             {
@@ -112,28 +112,28 @@ namespace ScavengerHunt.Web.Models
                                                                                                             }},
                                  new Stunt() { Keyword = "Ducktape", MaxScore = 20, Type = StuntTypeEnum.Live, Translations = new Collection<StuntTranslation>()
                                                                                                             {
-                                                                                                                new StuntTranslation() { Language = "fr", Title = "Ducktape", Description = "Ducktapez quelqu'un à sa chaise" },
-                                                                                                                new StuntTranslation() { Language = "en", Title = "Ducktape", Description = "Ducktape someone to its chair" }
+                                                                                                                new StuntTranslation() { Language = "fr", Title = "Ducktape", ShortDescription = "Ducktapez quelqu'un à sa chaise" },
+                                                                                                                new StuntTranslation() { Language = "en", Title = "Ducktape", ShortDescription = "Ducktape someone to its chair" }
                                                                                                             }},
                                  new Stunt() { Keyword = "LQJR", MaxScore = 10, Type = StuntTypeEnum.Picture, Translations = new Collection<StuntTranslation>()
                                                                                                              {
-                                                                                                                 new StuntTranslation() { Language = "fr", Title = "LQJR n'est pas mort", Description = "Envoyez une photo de Veers" },
-                                                                                                                 new StuntTranslation() { Language = "en", Title = "LQJR is not dead", Description = "Send us a picture of you with Veers" }
+                                                                                                                 new StuntTranslation() { Language = "fr", Title = "LQJR n'est pas mort", ShortDescription = "Envoyez une photo de Veers" },
+                                                                                                                 new StuntTranslation() { Language = "en", Title = "LQJR is not dead", ShortDescription = "Send us a picture of you with Veers" }
                                                                                                              }},
                                  new Stunt() { Keyword = "Jambon", MaxScore = 10, Type = StuntTypeEnum.Url, Translations = new Collection<StuntTranslation>()
                                                                                                            {
-                                                                                                               new StuntTranslation() { Language = "fr", Title = "Aimer le jambon", Description = "Mettez une image de votre équipe sur jambon.ca affichant fièrement le jambon." },
-                                                                                                               new StuntTranslation() { Language = "en", Title = "Love ham", Description = "Send a picture of your team on jambon.ca"}
+                                                                                                               new StuntTranslation() { Language = "fr", Title = "Aimer le jambon", ShortDescription = "Mettez une image de votre équipe sur jambon.ca affichant fièrement le jambon." },
+                                                                                                               new StuntTranslation() { Language = "en", Title = "Love ham", ShortDescription = "Send a picture of your team on jambon.ca"}
                                                                                                            }},
                                  new Stunt() { Keyword = "Xzcute", MaxScore = 5, Type = StuntTypeEnum.Picture, Translations = new Collection<StuntTranslation>()
                                                                                                             {
-                                                                                                                new StuntTranslation() { Language = "fr", Title = "Risquer sa vie", Description = "Photo avec le légendaire Xzcute" },
-                                                                                                                new StuntTranslation() { Language = "en", Title = "Risk your life", Description = "Picture with legendary Xzcute" }
+                                                                                                                new StuntTranslation() { Language = "fr", Title = "Risquer sa vie", ShortDescription = "Photo avec le légendaire Xzcute" },
+                                                                                                                new StuntTranslation() { Language = "en", Title = "Risk your life", ShortDescription = "Picture with legendary Xzcute" }
                                                                                                             }},
                                  new Stunt() { Keyword = "Zombies", MaxScore = 10, Type = StuntTypeEnum.Video, Translations = new Collection<StuntTranslation>()
                                                                                                              {
-                                                                                                                 new StuntTranslation() { Language = "fr", Title = "Zombies", Description = "Faites un reportage sur les Gamers Zombies" },
-                                                                                                                 new StuntTranslation() { Language = "en", Title = "Zombies", Description = "Do a news report on Zombie Gamers" }
+                                                                                                                 new StuntTranslation() { Language = "fr", Title = "Zombies", ShortDescription = "Faites un reportage sur les Gamers Zombies" },
+                                                                                                                 new StuntTranslation() { Language = "en", Title = "Zombies", ShortDescription = "Do a news report on Zombie Gamers" }
                                                                                                              }}
                              };
 

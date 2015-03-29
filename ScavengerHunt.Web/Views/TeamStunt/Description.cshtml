@@ -1,0 +1,80 @@
+﻿@using ScavengerHunt.Web.Models
+@model TeamStunt
+
+@{
+    ViewBag.Title = "Description";
+}
+
+<h2>@Model.Stunt.Title</h2>
+
+<p>@Html.Markdown(Model.Stunt.ShortDescription)</p>
+
+<hr>
+
+<p>@Html.Markdown(Model.Stunt.LongDescription)</p>
+
+<div class="img-responsive">
+    @Model.Stunt.Slideshow
+</div>
+
+<hr>
+
+@if(Model.Status != TeamStuntStatusEnum.Pending && Model.Status != TeamStuntStatusEnum.Done)
+{ 
+    using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Submission, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Submission, new { @class = "form-control" })
+                <div class="text-muted">
+                    <span class="glyphicon glyphicon-info-sign"></span> The judges are expecting a @Html.DisplayFor(model => model.Stunt.Type)
+                    @switch (Model.Stunt.Type)
+                    {
+                        case StuntTypeEnum.Picture:
+                            <span>May we recommend <a href="https://imgur.com/">imgur</a>?</span>
+                            break;
+                        case StuntTypeEnum.Video:
+                        <span>May we recommend <a href="https://youtube.com/">Youtube</a>?</span>
+                            break;
+                        case StuntTypeEnum.Live:
+                        <span>Go see them!</span>
+                            break;
+                        case StuntTypeEnum.File:
+                        <span>May we recommend <a href="https://www.dropbox.com/">Dropbox</a>?</span>
+                            break;
+                        case StuntTypeEnum.Flag:
+                        <span>It will be automatically corrected upon submission.</span>
+                            break;
+                    }
+                </div>
+                @Html.ValidationMessageFor(model => model.Submission)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="@Resources.Save" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+    }
+}
+else
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Submission, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Submission, new { @class = "form-control", @readonly = "true" })
+            </div>
+        </div>
+    </div>
+}
+
+        <div>
+            @Html.ActionLink(Resources.BackToList, "Index")
+        </div>

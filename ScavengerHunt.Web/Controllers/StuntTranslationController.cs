@@ -47,7 +47,8 @@ namespace ScavengerHunt.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="Id,Language,Title,Description")] StuntTranslation stunttranslation, int id)
+        [ValidateInput(false)]
+        public ActionResult Create([Bind(Include = "Id,Language,Title,ShortDescription, LongDescription, Slideshow")] StuntTranslation stunttranslation, int id)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +86,8 @@ namespace ScavengerHunt.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,Language,Title,Description")] StuntTranslation stunttranslation)
+        [ValidateInput(false)]
+        public ActionResult Edit([Bind(Include = "Id,Language,Title,ShortDescription, LongDescription, Slideshow")] StuntTranslation stunttranslation)
         {
             if (ModelState.IsValid)
             {
@@ -93,7 +95,9 @@ namespace ScavengerHunt.Web.Controllers
                 var st = db.StuntTranslations.Find(stunttranslation.Id);
                 st.Language = stunttranslation.Language;
                 st.Title = stunttranslation.Title;
-                st.Description = stunttranslation.Description;
+                st.ShortDescription = stunttranslation.ShortDescription;
+                st.LongDescription = stunttranslation.LongDescription;
+                st.Slideshow = stunttranslation.Slideshow;
 
                 db.Entry(st).State = EntityState.Modified;
                 db.SaveChanges();

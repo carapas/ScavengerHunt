@@ -339,9 +339,12 @@
     <Content Include="Views\Settings\Index.cshtml" />
     <Content Include="Views\Judge\Flags.cshtml" />
     <Content Include="Views\TeamStunt\Summary.cshtml" />
+    <Content Include="Views\Stunt\Description.cshtml" />
+    <Content Include="Views\TeamStunt\Description.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\App_LocalResources\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

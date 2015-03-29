@@ -225,4 +225,13 @@
   <data name="JudgeFeedback" xml:space="preserve">
     <value>Judge Feedback</value>
   </data>
+  <data name="LongDescription" xml:space="preserve">
+    <value>Long description</value>
+  </data>
+  <data name="ShortDescription" xml:space="preserve">
+    <value>Short description</value>
+  </data>
+  <data name="Slideshow" xml:space="preserve">
+    <value>Slideshow</value>
+  </data>
 </root>

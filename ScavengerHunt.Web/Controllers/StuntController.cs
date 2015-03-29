@@ -203,6 +203,21 @@ namespace ScavengerHunt.Web.Controllers
             return RedirectToAction("IndexAdmin");
         }
 
+        // GET: /Stunt/Description
+        public ActionResult Description(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Stunt stunt = db.Stunts.Find(id);
+            if (stunt == null)
+            {
+                return HttpNotFound();
+            }
+            return View(stunt.Globalize(Language));
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

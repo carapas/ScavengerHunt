@@ -6,11 +6,23 @@
     <span class="glyphicon glyphicon-chevron-down" data-toggle="collapse" data-target="#@panelId"></span>
     if (ViewBag.settings.ShowTitle)
     {
-        @Html.DisplayFor(modelItem => Model.Title)
+        if (User.Identity.IsAuthenticated)
+        {
+            <a href="/TeamStunt/Description?id=@Model.Id">
+                @Html.DisplayFor(modelItem => Model.Title)
+            </a>
+        }
+        else
+        {
+            <a href="/Stunt/Description?id=@Model.Id">
+                @Html.DisplayFor(modelItem => Model.Title)
+            </a>
+        }
     }
+
     <div id="@panelId" class="panel-collapse collapse">
         <div class="panel-body">
-            @Html.Markdown(Model.Description)
+            @Html.Markdown(Model.ShortDescription)
         </div>
     </div>
 }
@@ -18,8 +30,19 @@ else
 {
     if (ViewBag.settings.ShowTitle)
     {
-        @Html.DisplayFor(modelItem => Model.Title)
+        if (User.Identity.IsAuthenticated)
+        {
+            <a href="/TeamStunt/Description?id=@Model.Id">
+                @Html.DisplayFor(modelItem => Model.Title)
+            </a>
+        }
+        else
+        {
+            <a href="/Stunt/Description?id=@Model.Id">
+                @Html.DisplayFor(modelItem => Model.Title)
+            </a>
+        }
     }
     <br />
-    <span class="text-muted" style="font-size: smaller">@Html.Markdown(Model.Description)</span>
+    <span class="text-muted" style="font-size: smaller">@Html.Markdown(Model.ShortDescription)</span>
 }

@@ -1,0 +1,17 @@
+﻿@model ScavengerHunt.Web.Models.Stunt
+
+@{
+    ViewBag.Title = "Description";
+}
+
+<h2>@Model.Title</h2>
+
+<p>@Html.Markdown(Model.ShortDescription)</p>
+
+<p>@Html.Markdown(Model.LongDescription)</p>
+
+<hr>
+
+<div class="img-responsive">
+    @Model.Slideshow
+</div>

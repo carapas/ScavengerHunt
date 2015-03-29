@@ -25,7 +25,9 @@ namespace ScavengerHunt.Web
             if (translation == null) return stunt;
 
             stunt.Title = translation.Title;
-            stunt.Description = translation.Description;
+            stunt.ShortDescription = translation.ShortDescription;
+            stunt.LongDescription = translation.LongDescription;
+            stunt.Slideshow = translation.Slideshow;
             return stunt;
         }
 
