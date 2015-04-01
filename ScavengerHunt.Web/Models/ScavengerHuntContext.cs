@@ -17,9 +17,10 @@ namespace ScavengerHunt.Web.Models
             
         }
 
+        public DbSet<Rank> Ranks { get; set; }
         public DbSet<Stunt> Stunts { get; set; }
         public DbSet<Team> Teams { get; set; }
-        public DbSet<TeamStunt> TeamStunts { get; set; }
+        public DbSet<UserStunt> UserStunts { get; set; }
         public DbSet<StuntTranslation> StuntTranslations { get; set; }
         public DbSet<Setting> Settings { get; set; }
 
@@ -33,9 +34,9 @@ namespace ScavengerHunt.Web.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Team>()
-                .HasMany(a => a.TeamStunts)
+                .HasMany(a => a.Ranks)
                 .WithRequired(a => a.Team)
-                .WillCascadeOnDelete(true);
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Stunt>()
                 .HasMany(a => a.Translations)
@@ -47,8 +48,12 @@ namespace ScavengerHunt.Web.Models
                 .WithOptional(a => a.Stunt)
                 .WillCascadeOnDelete(true);
 
+            modelBuilder.Entity<ApplicationUser>()
+                .HasMany(a => a.UserStunts)
+                .WithRequired(a => a.User)
+                .WillCascadeOnDelete(true);
+
             // Rename Identity tables
-            modelBuilder.Entity<IdentityUser>().ToTable("IdentityUsers").Property(p => p.Id);
             modelBuilder.Entity<IdentityUser>().ToTable("Users").Property(p => p.Id).HasColumnName("UserId");
             modelBuilder.Entity<ApplicationUser>().ToTable("Users").Property(p => p.Id).HasColumnName("UserId");
             modelBuilder.Entity<IdentityUserRole>().ToTable("UserRoles");

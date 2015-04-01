@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-
+using System.Linq;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Newtonsoft.Json;
 
 namespace ScavengerHunt.Web.Models
 {
@@ -10,6 +11,23 @@ namespace ScavengerHunt.Web.Models
     public class ApplicationUser : IdentityUser
     {
         public virtual Team Team { get; set; }
+
+        public virtual string Email { get; set; }
+
+        public virtual string FullName { get; set; }
+
+        public virtual Rank Rank { get; set; }
+
+        [JsonIgnore]
+        public virtual ICollection<UserStunt> UserStunts { get; set; }
+
+        public virtual int Score
+        {
+            get
+            {
+                return UserStunts.Sum(x => x.Score);
+            }
+        }
     }
 
     public class IdentityManager

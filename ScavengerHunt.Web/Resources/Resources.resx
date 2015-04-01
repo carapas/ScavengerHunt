@@ -165,18 +165,6 @@
   <data name="Members" xml:space="preserve">
     <value>Members</value>
   </data>
-  <data name="NotPartOfATeam" xml:space="preserve">
-    <value>You are not part of a team yet!</value>
-  </data>
-  <data name="NotPartOfATeamDescription" xml:space="preserve">
-    <value>What are you waiting for? Join the fun!</value>
-  </data>
-  <data name="RegisterNewTeam" xml:space="preserve">
-    <value>Register a new team</value>
-  </data>
-  <data name="RegisterNewTeamExplanation" xml:space="preserve">
-    <value>You must register a team first</value>
-  </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>
@@ -218,9 +206,6 @@
   </data>
   <data name="JudgeNotes" xml:space="preserve">
     <value>Judge Notes</value>
-  </data>
-  <data name="TeamNotes" xml:space="preserve">
-    <value>Team notes</value>
   </data>
   <data name="JudgeFeedback" xml:space="preserve">
     <value>Judge Feedback</value>

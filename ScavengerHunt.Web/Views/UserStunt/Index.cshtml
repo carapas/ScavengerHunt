@@ -1,5 +1,5 @@
 ﻿@using ScavengerHunt.Web.Models
-@model IEnumerable<TeamStunt>
+@model IEnumerable<UserStunt>
 
 @{
     ViewBag.Title = "Index";
@@ -34,7 +34,7 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model.Where(x => x.Status != TeamStuntStatusEnum.Done))
+    @foreach (var item in Model.Where(x => x.Status != UserStuntStatusEnum.Done))
 {
     <tr>
         @if (ViewBag.settings.ShowKeyword)
@@ -56,7 +56,6 @@
             @Html.DisplayFor(modelItem => item.Status)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.TeamNotes, "Tooltip", new { Text = "Team" })<br />
             @Html.DisplayFor(modelItem => item.JudgeFeedback, "Tooltip", new { Text = "Judge" })
         </td>
         <td>
@@ -118,7 +117,6 @@
                     @Html.DisplayFor(modelItem => item.Status)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TeamNotes, "Tooltip", new { Text = "Team" })<br />
                     @Html.DisplayFor(modelItem => item.JudgeFeedback, "Tooltip", new { Text = "Judge" })
                 </td>
                 <td>

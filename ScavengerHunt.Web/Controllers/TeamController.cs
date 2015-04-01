@@ -10,7 +10,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 
 using Newtonsoft.Json;
-
+using Newtonsoft.Json.Linq;
 using ScavengerHunt.Web.Models;
 
 using WebGrease.Css.Extensions;
@@ -86,7 +86,7 @@ namespace ScavengerHunt.Web.Controllers
             string currentUserId = User.Identity.GetUserId();
             var currentUser = db.Users.Find(currentUserId);
             if (currentUser.Team != null && !User.IsInRole("Admin")) 
-                return RedirectToAction("Index", "TeamStunt");
+                return RedirectToAction("Index", "UserStunt");
 
             return View();
         }
@@ -126,13 +126,6 @@ namespace ScavengerHunt.Web.Controllers
                 var currentUser = db.Users.Find(currentUserId);
                 team.ContactUser = currentUser;
                 team.Members = new List<ApplicationUser> { currentUser };
-
-                // Copy stunts
-                team.TeamStunts = new List<TeamStunt>();
-                foreach (var stunt in db.Stunts)
-                {
-                    team.TeamStunts.Add(new TeamStunt() { Stunt = stunt, Status = TeamStuntStatusEnum.NotStarted});
-                }
                 
                 // Generate password token
                 team.Token = Guid.NewGuid().ToString();
@@ -155,14 +148,18 @@ namespace ScavengerHunt.Web.Controllers
         }
 
         // GET: /Team/Join
-        public ActionResult JoinPartial()
+        public ActionResult Join()
         {
             if (!User.Identity.IsAuthenticated) return RedirectToAction("Login", "Account");
-
-            return PartialView();
+            var jArray = new JArray();
+            foreach (var team in db.Teams.OrderBy(x => x.Members.Count()))
+            {
+                jArray.Add(JObject.FromObject(team));
+            }
+            return View(jArray);
         }
 
-        // GET: /Team/Join/password
+        // Post: /Team/Join/password
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Join([Bind(Include = "Token")] string token)
@@ -187,11 +184,12 @@ namespace ScavengerHunt.Web.Controllers
                 return View("Start");
             }
 
+            user.Rank = team.GetRank(user.Score);
             // Add user to team and save changes
             team.Members.Add(user);
             db.SaveChanges();
 
-            return RedirectToAction("Index", "TeamStunt");
+            return RedirectToAction("Index", "UserStunt");
         }
 
         public ActionResult Leave()
@@ -222,7 +220,7 @@ namespace ScavengerHunt.Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include="Id,Name,Token,Tagline,Url,BonusPoints")] Team team)
+        public ActionResult Edit([Bind(Include="Id,Name,Token,Tagline,Url,LogoUrl,BonusPoints,NumberOfRanks")] Team team)
         {
             if (ModelState.IsValid)
             {
@@ -233,12 +231,80 @@ namespace ScavengerHunt.Web.Controllers
                 t.Token = team.Token;
                 t.Tagline = team.Tagline;
                 t.Url = team.Url;
-                
+                t.LogoUrl = team.LogoUrl;
+                if (team.NumberOfRanks > t.NumberOfRanks)
+                {
+                    int diff = team.NumberOfRanks - t.Ranks.Count;
+                    for (int i = 0; i < diff; i++)
+                    {
+                        t.Ranks.Add(new Rank());
+                    }
+                }
+                else if (team.NumberOfRanks < t.NumberOfRanks)
+                {
+                    int diff = t.Ranks.Count - team.NumberOfRanks;
+                    for (int i = 0; i < diff; i++)
+                    {
+                        var toRemove = t.Ranks.Last();
+                        t.Ranks.Remove(toRemove);
+                        db.Entry(toRemove).State = EntityState.Deleted;
+                    }
+
+                    foreach (var member in t.Members)
+                    {
+                        member.Rank = t.GetRank(member.Score);
+                    }
+                }
+
+                t.NumberOfRanks = team.NumberOfRanks;
                 db.Entry(t).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("IndexAdmin");
             }
             return View(team);
+        }
+
+        // GET: /Team/EditRanks
+        [Authorize(Roles = "Admin")]
+        public ActionResult EditRanks(int id)
+        {
+            var team = db.Teams.Find(id);
+            if (team == null)
+            {
+                return HttpNotFound();
+            }
+
+            if (team.Ranks != null)
+                return View(team.Ranks.ToList());
+
+            return View(new List<Rank>());
+        }
+
+        // POST: /Team/EditRanks/id
+        [HttpPost]
+        public ActionResult EditRanks([Bind(Include = "Id,Name,ScoreToAchieve")] ICollection<Rank> ranks, int id)
+        {
+            foreach (var rank in ranks)
+            {
+                var dbRank = db.Ranks.Find(rank.Id);
+                dbRank.Name = rank.Name;
+                dbRank.ScoreToAchieve = rank.ScoreToAchieve;
+                db.Entry(dbRank).State = EntityState.Modified;
+            }
+            db.SaveChanges();
+
+            Team team = db.Teams.Find(id);
+            if (team != null)
+            {
+                foreach (var member in team.Members)
+                {
+                    member.Rank = team.GetRank(member.Score);
+                    db.Entry(member).State = EntityState.Modified;
+                }
+            }
+
+            db.SaveChanges();
+            return RedirectToAction("IndexAdmin");
         }
 
         // GET: /Team/Delete/5
@@ -323,12 +389,12 @@ namespace ScavengerHunt.Web.Controllers
             db.SaveChanges();
 
             // Create TeamStunts for the teams
-            foreach (var team in teams)
+            foreach (var user in db.Users)
             {
                 foreach (var stunt in db.Stunts)
                 {
-                    var ts = new TeamStunt() { Stunt = stunt, Team = team };
-                    db.TeamStunts.Add(ts);
+                    var ts = new UserStunt() { Stunt = stunt, User = user };
+                    db.UserStunts.Add(ts);
                 }
             }
             db.SaveChanges();

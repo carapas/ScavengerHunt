@@ -1,9 +1,9 @@
-﻿@model IEnumerable<ScavengerHunt.Web.Models.TeamStunt>
+﻿@model IEnumerable<ScavengerHunt.Web.Models.UserStunt>
     
 @foreach (var stunt in Model.Where(x => x.Done).OrderByDescending(x => x.DateUpdated).Take(5))
 {
     <p>
-        <b>@Html.DisplayFor(x => stunt.Team.Name)</b> <span>capped</span>
+        <b>@Html.DisplayFor(x => stunt.User.UserName)</b> <span>capped</span>
         @Html.DisplayFor(x => stunt.Stunt.Title) <span>for</span>
         <b>@Html.DisplayFor(x => stunt.Score) <span> points!</span></b>
 </p>

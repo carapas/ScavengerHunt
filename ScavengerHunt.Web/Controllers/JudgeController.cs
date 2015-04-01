@@ -16,12 +16,12 @@ namespace ScavengerHunt.Web.Controllers
         // GET: /Judge/
         public ActionResult Index()
         {
-            return View(db.TeamStunts.ToList().Globalize(Language));
+            return View(db.UserStunts.ToList().Globalize(Language));
         }
 
         public ActionResult Flags()
         {
-            return View(db.TeamStunts.Where(x => x.Stunt.Type == StuntTypeEnum.Flag &&
+            return View(db.UserStunts.Where(x => x.Stunt.Type == StuntTypeEnum.Flag &&
                 (!string.IsNullOrEmpty(x.Submission) || !string.IsNullOrEmpty(x.JudgeNotes)))
                 .ToList().Globalize(Language));
         }
@@ -34,7 +34,7 @@ namespace ScavengerHunt.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TeamStunt teamstunt = db.TeamStunts.Find(id);
+            UserStunt teamstunt = db.UserStunts.Find(id);
             if (teamstunt == null)
             {
                 return HttpNotFound();
@@ -47,20 +47,24 @@ namespace ScavengerHunt.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,Score,JudgeNotes,JudgeFeedback,Status")] TeamStunt teamstunt)
+        public ActionResult Edit([Bind(Include="Id,Score,JudgeNotes,JudgeFeedback,Status")] UserStunt teamstunt)
         {
             if (ModelState.IsValid)
             {
                 // Get previous stunt object
-                var teamStunt = db.TeamStunts.Find(teamstunt.Id);
+                var userStunt = db.UserStunts.Find(teamstunt.Id);
+                var user = userStunt.User;
 
-                teamStunt.DateUpdated = DateTime.Now;
-                teamStunt.Score = teamstunt.Score;
-                teamStunt.Status = teamstunt.Status;
-                teamStunt.JudgeFeedback = teamstunt.JudgeFeedback;
-                teamStunt.JudgeNotes = teamstunt.JudgeNotes;
+                userStunt.DateUpdated = DateTime.Now;
+                userStunt.Score = teamstunt.Score;
+                userStunt.Status = teamstunt.Status;
+                userStunt.JudgeFeedback = teamstunt.JudgeFeedback;
+                userStunt.JudgeNotes = teamstunt.JudgeNotes;
 
-                db.Entry(teamStunt).State = EntityState.Modified;
+                user.Rank = user.Team.GetRank(user.Score);
+
+                db.Entry(userStunt).State = EntityState.Modified;
+                db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
