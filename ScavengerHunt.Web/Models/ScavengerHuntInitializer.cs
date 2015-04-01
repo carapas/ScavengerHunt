@@ -75,22 +75,13 @@ namespace ScavengerHunt.Web.Models
             RoleManager.Create(new IdentityRole("Admin"));
             RoleManager.Create(new IdentityRole("Judge"));
 
-            // Create users
-            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-            var userAdmin = new ApplicationUser() { UserName = "admin" };
-            UserManager.Create(userAdmin, "admin123");
-            UserManager.AddToRole(userAdmin.Id, "Admin");
-            var userJudge = new ApplicationUser() { UserName = "judge" };
-            UserManager.Create(userJudge, "judge123");
-            UserManager.AddToRole(userJudge.Id, "Judge");
-
             // Create mock data
             var teams = new List<Team>
                             {
-                                new Team() { Name = "Yves Corbeil" },
-                                new Team() { Name = "Sloth" },
-                                new Team() { Name = "CDP" },
-                                new Team() { Name = "Les Casseurs Flotteurs" }
+                                new Team() { Name = "Baratheon" },
+                                new Team() { Name = "Stark" },
+                                new Team() { Name = "Tyrell" },
+                                new Team() { Name = "Lanister" }
                             };
             teams.ForEach(t => context.Teams.Add(t));
             context.SaveChanges();

@@ -66,10 +66,10 @@ namespace ScavengerHunt.Web.Controllers
                 db.SaveChanges();
 
                 // Il faut aussi l'ajouter/assigner aux équipes déjà inscrites
-                foreach (var team in db.Teams)
+                foreach (var user in db.Users)
                 {
-                    var ts = new TeamStunt() { Stunt = stunt, Team = team };
-                    db.TeamStunts.Add(ts);
+                    var ts = new UserStunt() { Stunt = stunt, User = user };
+                    db.UserStunts.Add(ts);
                 }
 
                 db.SaveChanges();
@@ -192,10 +192,10 @@ namespace ScavengerHunt.Web.Controllers
             // Create TeamStunts for the teams
             foreach (var stunt in d)
             {
-                foreach (var team in db.Teams)
+                foreach (var user in db.Users)
                 {
-                    var ts = new TeamStunt() { Stunt = stunt, Team = team };
-                    db.TeamStunts.Add(ts);
+                    var ts = new UserStunt() { Stunt = stunt, User = user };
+                    db.UserStunts.Add(ts);
                 }
             }
             db.SaveChanges();

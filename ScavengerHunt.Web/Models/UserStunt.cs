@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace ScavengerHunt.Web.Models
 {
-    public class TeamStunt
+    public class UserStunt
     {
         public int Id { get; set; }
         public int Score { get; set; }
@@ -16,12 +16,6 @@ namespace ScavengerHunt.Web.Models
         public DateTime DateUpdated { get; set; }
         public string Submission { get; set; }
         
-        /// <summary>
-        /// Internal notes for the team
-        /// </summary>
-        [Display(ResourceType = typeof(Resources.Resources), Name = "TeamNotes")]
-        public string TeamNotes { get; set; }
-
         /// <summary>
         /// Internal notes for the judges
         /// </summary>
@@ -35,56 +29,44 @@ namespace ScavengerHunt.Web.Models
 
         // TODO: Add support for stunt owner
 
-        public TeamStuntStatusEnum Status { get; set; }
-        public virtual Team Team { get; set; }
+        public UserStuntStatusEnum Status { get; set; }
+        public virtual ApplicationUser User { get; set; }
         public virtual Stunt Stunt { get; set; }
 
         public virtual bool Done
         {
             get
             {
-                return Status == TeamStuntStatusEnum.Done || Score > 0;
+                return Status == UserStuntStatusEnum.Done || Score > 0;
             }
         }
 
-        public TeamStunt()
+        public UserStunt()
         {
             Score = 0;
-            Status = TeamStuntStatusEnum.NotStarted;
+            Status = UserStuntStatusEnum.Available;
             DateUpdated = DateTime.Now;
         }
     }
 
-    public enum TeamStuntStatusEnum
+    public enum UserStuntStatusEnum
     {
         /// <summary>
         /// Not started by the team yet
         /// </summary>
-        [Display(Name = "Not Started")]
-        NotStarted,
-
-        /// <summary>
-        /// Currently being done by the team
-        /// </summary>
-        [Display(Name = "Work In Progress")]
-        WorkInProgress,
+        [Display(Name = "Available")]
+        Available,
 
         /// <summary>
         /// Pending judgement
         /// </summary>
-        [Display(Name = "Ready for Judgement")]
+        [Display(Name = "Sent")]
         Pending,
 
         /// <summary>
         /// Judged
         /// </summary>
-        [Display(Name = "Done")]
-        Done,
-
-        /// <summary>
-        /// Abandoned; Will not be done the team; 
-        /// </summary>
-        [Display(Name = "Abandonned")]
-        Abandon
+        [Display(Name = "Judged")]
+        Done
     }
 }

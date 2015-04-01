@@ -18,8 +18,11 @@ namespace ScavengerHunt.Web.Models
         public string Token { get; set; }
         public string Tagline { get; set; }
         public string Url { get; set; }
+        public string LogoUrl { get; set; }
+        public int NumberOfRanks { get; set; }
 
         [Display(ResourceType = typeof(Resources.Resources), Name = "BonusPoints")]
+        [JsonIgnore]
         public int BonusPoints { get; set; }
         
         [JsonIgnore]
@@ -29,18 +32,18 @@ namespace ScavengerHunt.Web.Models
         public virtual ApplicationUser ContactUser { get; set; }
 
         [JsonIgnore]
-        public virtual ICollection<TeamStunt> TeamStunts { get; set; }
+        public virtual ICollection<Rank> Ranks { get; set; }
 
         // TODO: Team URL
 
         // TODO: Team Logo
-
+        
         [JsonIgnore]
         public virtual int Score
         {
             get
             {
-                return (this.TeamStunts == null ? 0 : this.TeamStunts.Sum(x => x.Score)) + this.BonusPoints;
+                return (this.Members == null ? 0 : this.Members.SelectMany(x => x.UserStunts).Sum(x => x.Score)) + this.BonusPoints;
             }
         }
 
@@ -50,8 +53,16 @@ namespace ScavengerHunt.Web.Models
         {
             get
             {
-                return this.TeamStunts == null ? 0 : this.TeamStunts.Count(x => x.Status == TeamStuntStatusEnum.Done);
+                return this.Members == null ? 0 : this.Members.SelectMany(x => x.UserStunts).Count(y => y.Status == UserStuntStatusEnum.Done);
             }
+        }
+
+        public Rank GetRank(int score)
+        {
+            if (Ranks == null || !Ranks.Any())
+                return null;
+
+            return Ranks.Where(x => x.ScoreToAchieve <= score).OrderByDescending(x => x.ScoreToAchieve).FirstOrDefault();
         }
     }
 }

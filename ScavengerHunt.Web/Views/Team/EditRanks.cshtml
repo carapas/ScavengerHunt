@@ -1,0 +1,36 @@
+﻿@model IList<ScavengerHunt.Web.Models.Rank>
+
+@{
+    ViewBag.Title = "Edit Ranks";
+}
+
+<h2>Edit Ranks</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <table class="table table-striped">
+        <tr>
+            <td>@Html.LabelFor(model => model.First().ScoreToAchieve)</td>
+            <td>@Html.LabelFor(model => model.First().Name)</td>
+        </tr>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <tr>
+                @Html.HiddenFor(m => m[i].Id)
+                <td>@Html.EditorFor(m => m[i].ScoreToAchieve, new {@class = "form-control"})</td>
+                <td>@Html.TextBoxFor(m => m[i].Name, new {@class = "form-control"})</td>
+            </tr>
+        }
+    </table>
+
+    <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-success"/>
+            @Html.ActionLink("Back to List", "Index")
+    </div>
+}
+
+<br/>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

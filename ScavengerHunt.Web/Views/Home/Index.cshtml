@@ -17,16 +17,9 @@
         <p><a class="btn btn-default" href="/Team/Start">@Resources.Join &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>@Resources.RegisterNewTeam</h2>
-        <p>
-            @Resources.RegisterNewTeamExplanation
-        </p>
-        <p><a class="btn btn-default" href="/Team/Start">@Resources.Create &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
         <h2>@Resources.StartJourney</h2>
         <p>@Resources.StartJourneyExplanation</p>
-        <p><a class="btn btn-default" href="/TeamStunt/">@Resources.Start &raquo;</a></p>
+        <p><a class="btn btn-default" href="/UserStunt/">@Resources.Start &raquo;</a></p>
     </div>
 </div>
 
@@ -43,7 +36,7 @@
         {
             <div class="col-md-4">
                 <h2>@Resources.StuntActivity</h2>
-                @Html.Action("ActivityPartial", "TeamStunt")
+                @Html.Action("ActivityPartial", "UserStunt")
             </div>
         }
     </div>

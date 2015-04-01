@@ -193,11 +193,12 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JudgeController.cs" />
+    <Compile Include="Controllers\ScoreboardController.cs" />
     <Compile Include="Controllers\SettingsController.cs" />
     <Compile Include="Controllers\StuntController.cs" />
     <Compile Include="Controllers\StuntTranslationController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
-    <Compile Include="Controllers\TeamStuntController.cs" />
+    <Compile Include="Controllers\UserStuntController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -205,13 +206,14 @@
     <Compile Include="MarkdownHelper.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Rank.cs" />
     <Compile Include="Models\ScavengerHuntContext.cs" />
     <Compile Include="Models\ScavengerHuntInitializer.cs" />
     <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\Stunt.cs" />
     <Compile Include="Models\StuntTranslation.cs" />
     <Compile Include="Models\Team.cs" />
-    <Compile Include="Models\TeamStunt.cs" />
+    <Compile Include="Models\UserStunt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Resources.fr.Designer.cs">
       <DependentUpon>Resources.fr.resx</DependentUpon>
@@ -250,7 +252,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Views\Team\IndexPartial.cshtml" />
-    <Content Include="Views\TeamStunt\ActivityPartial.cshtml" />
+    <Content Include="Views\UserStunt\ActivityPartial.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
@@ -283,7 +285,6 @@
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Manage.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Stunt\Create.cshtml" />
     <Content Include="Views\Stunt\Delete.cshtml" />
@@ -293,10 +294,9 @@
     <Content Include="Views\Team\Details.cshtml" />
     <Content Include="Views\Team\Edit.cshtml" />
     <Content Include="Views\Team\IndexAdmin.cshtml" />
-    <Content Include="Views\Team\JoinPartial.cshtml" />
     <Content Include="Views\Team\CreateDone.cshtml" />
-    <Content Include="Views\TeamStunt\Edit.cshtml" />
-    <Content Include="Views\TeamStunt\Index.cshtml" />
+    <Content Include="Views\UserStunt\Edit.cshtml" />
+    <Content Include="Views\UserStunt\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Enum.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Enum.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Enum-radio.cshtml" />
@@ -338,7 +338,11 @@
     <Content Include="Views\Settings\Edit.cshtml" />
     <Content Include="Views\Settings\Index.cshtml" />
     <Content Include="Views\Judge\Flags.cshtml" />
-    <Content Include="Views\TeamStunt\Summary.cshtml" />
+    <Content Include="Views\UserStunt\Summary.cshtml" />
+    <Content Include="Views\Team\Join.cshtml" />
+    <Content Include="Views\Scoreboard\Index.cshtml" />
+    <Content Include="Views\Team\EditRanks.cshtml" />
+    <Content Include="Views\Scoreboard\Teams.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -358,6 +362,7 @@
     <EmbeddedResource Include="Resources\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
