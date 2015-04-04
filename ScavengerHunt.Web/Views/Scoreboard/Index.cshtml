@@ -1,0 +1,54 @@
+﻿@model IEnumerable<ScavengerHunt.Web.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>Scoreboard</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Team)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rank)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Score)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    if (item.Team != null)
+     {
+         <tr>
+             <td>
+                 @Html.DisplayFor(modelItem => item.FullName)
+             </td>
+             <td>
+                 @Html.DisplayFor(modelItem => item.Team.Name)
+             </td>
+             @if (item.Rank != null)
+             {
+                 <td>
+                    @Html.DisplayFor(modelItem => item.Rank.Name)
+                 </td>
+             }
+             else
+             {
+                <td>
+                    No rank
+                </td>
+             }
+             <td>
+                 @Html.DisplayFor(modelItem => item.Score)
+             </td>
+         </tr>
+     }
+}
+
+</table>

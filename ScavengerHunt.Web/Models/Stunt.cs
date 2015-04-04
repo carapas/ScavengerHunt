@@ -29,7 +29,7 @@ namespace ScavengerHunt.Web.Models
         public virtual ICollection<StuntTranslation> Translations { get; set; }
 
         [JsonIgnore]
-        public virtual ICollection<TeamStunt> TeamStunts { get; set; }
+        public virtual ICollection<UserStunt> TeamStunts { get; set; }
 
         [JsonIgnore]
         public virtual string Title { get; set; }

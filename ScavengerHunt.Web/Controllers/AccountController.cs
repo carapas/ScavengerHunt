@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using System.Security.Claims;
+using System.Net;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
@@ -15,24 +17,105 @@ namespace ScavengerHunt.Web.Controllers
     public class AccountController : BaseController
     {
         public AccountController()
-            : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ScavengerHuntContext())))
         {
+            UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
         }
 
-        public AccountController(UserManager<ApplicationUser> userManager)
+        public AccountController(UserManager<ApplicationUser> userManager = null)
         {
             UserManager = userManager;
         }
 
         public UserManager<ApplicationUser> UserManager { get; private set; }
 
+
+        public async Task<ActionResult> SetMeAdminPls(string returnUrl)
+        {
+            // Get current user
+            var userid = User.Identity.GetUserId();
+            if (!String.IsNullOrEmpty(userid) && db.Users.Count() < 2)
+            {
+                var result = await UserManager.AddToRoleAsync(userid, "Admin");
+            }
+
+            return RedirectToLocal(returnUrl);
+        }
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
-        public ActionResult Login(string returnUrl)
+        public async Task<ActionResult> Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-            return View();
+            string ticket = Request.QueryString["ticket"];
+            if (String.IsNullOrEmpty(ticket))
+            {
+                return Redirect(String.Format("https://cas.usherbrooke.ca/login?service={0}", Request.Url));
+            }
+            else
+            {
+                returnUrl = returnUrl == null ? Request.Url.GetLeftPart(UriPartial.Authority) : returnUrl;
+                HttpWebRequest httpRequest = (HttpWebRequest)WebRequest.Create(String.Format("https://cas.usherbrooke.ca/serviceValidate?ticket={0}&service={1}", ticket, Request.Url.GetLeftPart(UriPartial.Path)));
+                httpRequest.Method = "POST";
+
+                HttpWebResponse response = (HttpWebResponse) httpRequest.GetResponse();
+                using (var reader = new StreamReader(response.GetResponseStream(), System.Text.Encoding.UTF8))
+                {
+                    String resultData = reader.ReadToEnd();
+                    XNamespace cas = "http://www.yale.edu/tp/cas";
+                    var xDoc = XDocument.Parse(resultData);
+                    bool isSuccess = xDoc.Descendants(cas + "authenticationSuccess").Any();
+                    if (isSuccess)
+                    {
+                        string username = xDoc.Descendants(cas + "user").FirstOrDefault().Value;
+                        string matricule = xDoc.Descendants(cas + "matriculeEtudiant").FirstOrDefault().Value;
+                        var user = await UserManager.FindAsync(username, matricule);
+                        if (user != null)
+                        {
+                            await SignInAsync(user, false);
+                        }
+                        else
+                        {
+                            //Register
+                            var newUser = new ApplicationUser() { UserName = username,
+                                                                  FullName = xDoc.Descendants(cas + "nomAffichage").FirstOrDefault().Value,
+                                                                  Email = xDoc.Descendants(cas + "courriel").FirstOrDefault().Value
+                            };
+                            newUser.UserStunts = new List<UserStunt>();
+                            foreach (var stunt in db.Stunts)
+                            {
+                                newUser.UserStunts.Add(new UserStunt()
+                                {
+                                    Stunt = stunt,
+                                    Status = UserStuntStatusEnum.Available,
+                                    User = user
+                                });
+
+                            }
+
+                            var result = await UserManager.CreateAsync(newUser, matricule);
+                            if (result.Succeeded)
+                            {
+                                await SignInAsync(newUser, isPersistent: false);
+                                ApplicationUser appUser = await UserManager.FindByNameAsync(newUser.UserName);
+
+                                if (db.Users.Count() < 2)
+                                {
+                                    await UserManager.AddToRoleAsync(appUser.Id, "Admin");
+                                }
+
+                                return RedirectToAction("Index", "Home");
+                            }
+                            else
+                            {
+                                AddErrors(result);
+                            }
+                        }
+                    }
+                }
+
+                return RedirectToLocal(returnUrl);
+            }
         }
 
         //
@@ -53,40 +136,6 @@ namespace ScavengerHunt.Web.Controllers
                 else
                 {
                     ModelState.AddModelError("", "Invalid username or password.");
-                }
-            }
-
-            // If we got this far, something failed, redisplay form
-            return View(model);
-        }
-
-        //
-        // GET: /Account/Register
-        [AllowAnonymous]
-        public ActionResult Register()
-        {
-            return View();
-        }
-
-        //
-        // POST: /Account/Register
-        [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = new ApplicationUser() { UserName = model.UserName };
-                var result = await UserManager.CreateAsync(user, model.Password);
-                if (result.Succeeded)
-                {
-                    await SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
-                }
-                else
-                {
-                    AddErrors(result);
                 }
             }
 

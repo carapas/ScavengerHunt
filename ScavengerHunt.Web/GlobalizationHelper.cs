@@ -32,7 +32,7 @@ namespace ScavengerHunt.Web
             return stunt;
         }
 
-        public static TeamStunt Globalize(this TeamStunt teamStunt, string language)
+        public static UserStunt Globalize(this UserStunt teamStunt, string language)
         {
             teamStunt.Stunt = teamStunt.Stunt.Globalize(language);
             return teamStunt;
@@ -47,7 +47,7 @@ namespace ScavengerHunt.Web
             return stunts;
         }
 
-        public static ICollection<TeamStunt> Globalize(this ICollection<TeamStunt> teamStunts, string language)
+        public static ICollection<UserStunt> Globalize(this ICollection<UserStunt> teamStunts, string language)
         {
             foreach (var teamStunt in teamStunts)
             {

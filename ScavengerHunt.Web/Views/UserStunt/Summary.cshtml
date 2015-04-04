@@ -1,6 +1,6 @@
 ﻿@using Microsoft.Ajax.Utilities
 @using ScavengerHunt.Web.Models
-@model IEnumerable<TeamStunt>
+@model IEnumerable<UserStunt>
 
 @{
     ViewBag.Title = "Index";
@@ -25,12 +25,10 @@
                     @foreach (var teamStunt in Model.Where(x => x.Stunt.Id == stunt.Stunt.Id && x.Score > 0).OrderByDescending(x => x.Score))
                     {
                         <tr>
-                            <td>@Html.DisplayFor(modelItem => teamStunt.Team, "TeamName")</td>
                             <td>@Html.DisplayFor(modelItem => teamStunt.Status)</td>
                             <td>@Html.DisplayFor(modelItem => teamStunt.Submission)</td>
                             <td width="60">@Html.DisplayFor(modelItem => teamStunt, "Score")</td>
-                            <td width="90">@Html.DisplayFor(modelItem => teamStunt.TeamNotes, "Tooltip", new { Text = "Team" })
-                                @Html.DisplayFor(modelItem => teamStunt.JudgeFeedback, "Tooltip", new { Text = "Feedback" })
+                            <td width="90">@Html.DisplayFor(modelItem => teamStunt.JudgeFeedback, "Tooltip", new { Text = "Feedback" })
                                 @Html.DisplayFor(modelItem => teamStunt.JudgeNotes, "Tooltip", new { Text = "Notes" })
                             </td>
                         </tr>

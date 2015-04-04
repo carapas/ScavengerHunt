@@ -338,13 +338,17 @@
     <Content Include="Views\Settings\Edit.cshtml" />
     <Content Include="Views\Settings\Index.cshtml" />
     <Content Include="Views\Judge\Flags.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Views\TeamStunt\Summary.cshtml" />
     <Content Include="Views\Stunt\Description.cshtml" />
-    <Content Include="Views\UserStunt\Description.cshtml" />
+    <Content Include="Views\TeamStunt\Description.cshtml" />
+=======
     <Content Include="Views\UserStunt\Summary.cshtml" />
     <Content Include="Views\Team\Join.cshtml" />
     <Content Include="Views\Scoreboard\Index.cshtml" />
     <Content Include="Views\Team\EditRanks.cshtml" />
     <Content Include="Views\Scoreboard\Teams.cshtml" />
+>>>>>>> David-Features
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,5 +1,5 @@
 ﻿@using ScavengerHunt.Web.Models
-@model TeamStunt
+@model UserStunt
 
 @{
     ViewBag.Title = "Description";
@@ -20,7 +20,7 @@
 
 <hr>
 
-@if(Model.Status != TeamStuntStatusEnum.Pending && Model.Status != TeamStuntStatusEnum.Done)
+@if (Model.Status != UserStuntStatusEnum.Pending && Model.Status != UserStuntStatusEnum.Done)
 { 
     using (Html.BeginForm())
     {
