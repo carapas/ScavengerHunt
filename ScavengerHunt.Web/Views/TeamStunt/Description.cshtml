@@ -14,7 +14,8 @@
 <p>@Html.Markdown(Model.Stunt.LongDescription)</p>
 
 <div class="img-responsive">
-    @Model.Stunt.Slideshow
+    @if (Model.Stunt.HasSlideshow) { 
+        <iframe id='iframe' src='@Model.Stunt.Slideshow' scrolling='no' frameborder='0' width='600' height='400'></iframe>}
 </div>
 
 <hr>

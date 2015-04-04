@@ -146,7 +146,7 @@ namespace ScavengerHunt.Web.Controllers
 
             if (user == null) return RedirectToAction("Login", "Account");
             if (user.Team == null) return RedirectToAction("Start", "Team");
-            if (user.Team.TeamStunts.All(x => x.Id != id)) return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            //if (user.Team.TeamStunts.All(x => x.Id != id)) return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
 
             return View(teamstunt.Globalize(Language));
         }
@@ -155,7 +155,6 @@ namespace ScavengerHunt.Web.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Description([Bind(Include = "Id,TeamNotes,Submission,Status")] TeamStunt teamstunt)
         {
             if (ModelState.IsValid)

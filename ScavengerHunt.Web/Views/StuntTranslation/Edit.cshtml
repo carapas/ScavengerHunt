@@ -51,10 +51,18 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.HasSlideshow, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.HasSlideshow)
+                @Html.ValidationMessageFor(model => model.HasSlideshow)
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.Slideshow, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextAreaFor(model => model.Slideshow, new { @class = "form-control", @style = "height: 100px" })
-                <span class="text-muted"><span class="glyphicon glyphicon-info-sign"></span> Use this <a href="http://flickrit.com/index.php">http://flickrit.com/</a> to create slideshow</span>
+                <span class="text-muted"><span class="glyphicon glyphicon-info-sign"></span> Use this <a href="http://flickrit.com/index.php">http://flickrit.com/</a> to create slideshow (600x400)</span>
                 @Html.ValidationMessageFor(model => model.Slideshow)
             </div>
         </div>

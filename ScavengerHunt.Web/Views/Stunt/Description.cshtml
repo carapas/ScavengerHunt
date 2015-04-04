@@ -8,10 +8,9 @@
 
 <p>@Html.Markdown(Model.ShortDescription)</p>
 
-<p>@Html.Markdown(Model.LongDescription)</p>
-
 <hr>
 
-<div class="img-responsive">
-    @Model.Slideshow
-</div>
+<p>@Html.Markdown(Model.LongDescription)</p>
+
+    @if (Model.HasSlideshow) { 
+        <iframe id='iframe' src='@Model.Slideshow' scrolling='no' frameborder='0' width='600' height='400'></iframe>}

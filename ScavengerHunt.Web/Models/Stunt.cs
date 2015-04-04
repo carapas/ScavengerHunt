@@ -43,6 +43,9 @@ namespace ScavengerHunt.Web.Models
         [JsonIgnore]
         public virtual string Slideshow { get; set; }
 
+        [JsonIgnore]
+        public virtual bool HasSlideshow { get; set; }
+
         public Stunt()
         {
             this.Published = true;

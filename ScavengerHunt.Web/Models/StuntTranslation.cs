@@ -19,6 +19,7 @@ namespace ScavengerHunt.Web.Models
         public string Title { get; set; }
         public string ShortDescription { get; set; }
         public string LongDescription { get; set; }
+        public bool HasSlideshow { get; set; }
         public string Slideshow { get; set; }
 
         public StuntTranslation()
