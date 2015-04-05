@@ -21,6 +21,9 @@ namespace ScavengerHunt.Web.Models
         [JsonIgnore]
         public virtual ICollection<UserStunt> UserStunts { get; set; }
 
+        [JsonIgnore]
+        public virtual ICollection<UserAchievement> UserAchievement { get; set; }
+
         public virtual int Score
         {
             get

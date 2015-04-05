@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ScavengerHunt.Web.Models.UserAchievement>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Description
+        </th>
+        <th>
+            Image
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Achievement.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Achievement.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Achievement.Image)
+        </td>
+    </tr>
+}
+
+</table>

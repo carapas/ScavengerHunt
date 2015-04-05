@@ -20,6 +20,8 @@ namespace ScavengerHunt.Web.Models
         public DbSet<Rank> Ranks { get; set; }
         public DbSet<Stunt> Stunts { get; set; }
         public DbSet<Team> Teams { get; set; }
+        public DbSet<Achievement> Achievement { get; set; }
+        public DbSet<UserAchievement> UserAchievement { get; set; }
         public DbSet<UserStunt> UserStunts { get; set; }
         public DbSet<StuntTranslation> StuntTranslations { get; set; }
         public DbSet<Setting> Settings { get; set; }
@@ -52,6 +54,9 @@ namespace ScavengerHunt.Web.Models
                 .HasMany(a => a.UserStunts)
                 .WithRequired(a => a.User)
                 .WillCascadeOnDelete(true);
+
+            modelBuilder.Entity<UserAchievement>()
+                .HasRequired(a => a.Achievement);
 
             // Rename Identity tables
             modelBuilder.Entity<IdentityUser>().ToTable("Users").Property(p => p.Id).HasColumnName("UserId");
