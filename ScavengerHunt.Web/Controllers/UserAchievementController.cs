@@ -23,25 +23,25 @@ namespace ScavengerHunt.Web.Controllers
         // GET: UserAchievement
         public ActionResult Index()
         {
-            /*var user = db.Users.Find(id);
+            var user = db.Users.Find(User.Identity.GetUserId());
             foreach (UserAchievement achievement in user.UserAchievement)
             {
                 achievement.Achievement = db.Achievement.Find(achievement.AchievementId);
             }
-            return View(user.UserAchievement);*/
-            return View(db.UserAchievement.ToList());
+            return View(user.UserAchievement);
+            //return View(db.UserAchievement.ToList());
         }
 
         // GET: UserAchievement
         public ActionResult IndexPartial()
         {
-            /*var user = db.Users.Find(id);
+            var user = db.Users.Find(User.Identity.GetUserId());
             foreach (UserAchievement achievement in user.UserAchievement)
             {
                 achievement.Achievement = db.Achievement.Find(achievement.AchievementId);
             }
-            return View(user.UserAchievement);*/
-            return View(db.UserAchievement.ToList());
+            return View(user.UserAchievement);
+            //return View(db.UserAchievement.ToList());
         }
 
         // GET: UserAchievement/Create
@@ -62,7 +62,7 @@ namespace ScavengerHunt.Web.Controllers
             }
             var userAchievement = new UserAchievement();
             userAchievement.Achievement = achievement;
-            userAchievement.allUser = db.Users.ToList();
+            userAchievement.allUser = db.Users.Where(x => !x.UserAchievement.Any(y => y.AchievementId == achievement.Id)).ToList();
 
             return View(userAchievement);
         }
