@@ -1,24 +1,25 @@
-﻿@model IEnumerable<ScavengerHunt.Web.Models.UserAchievement>
+﻿@using ScavengerHunt.Web.Resources
+@model IEnumerable<ScavengerHunt.Web.Models.UserAchievement>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Resources.Achievement;
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink(Resources.CreateNew, "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            Name
+            @Html.DisplayFor(model => model.Achievement.Name)
         </th>
         <th>
-            Description
+            @Html.DisplayFor(model => model.Achievement.Description)
         </th>
         <th>
-            Image
+            @Html.DisplayFor(model => model.Achievement.Image)
         </th>
     </tr>
 

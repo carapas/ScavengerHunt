@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<ScavengerHunt.Web.Models.Setting>
 
 @{
-    ViewBag.Title = "Settings";
+    ViewBag.Title = Resources.Settings;
 }
 
 <h2>@ViewBag.Title</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink(Resources.CreateNew, "Create")
 </p>
 <table class="table">
     <tr>
@@ -35,8 +35,8 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Key }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Key })
+            @Html.ActionLink(Resources.Edit, "Edit", new { id=item.Key }) |
+            @Html.ActionLink(Resources.Delete, "Delete", new { id=item.Key })
         </td>
     </tr>
 }

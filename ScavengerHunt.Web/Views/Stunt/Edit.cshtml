@@ -2,10 +2,10 @@
 @model ScavengerHunt.Web.Models.Stunt
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = Resources.Edit;
 }
 
-<h2>Edit</h2>
+<h2>@ViewBag.Title</h2>
 
 
 @using (Html.BeginForm())
@@ -13,7 +13,7 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Stunt</h4>
+        <h4>@Resources.Stunts</h4>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
@@ -69,7 +69,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-success" />
+                <input type="submit" value=@Resources.Save class="btn btn-success" />
             </div>
         </div>
     </div>
@@ -80,7 +80,7 @@
 
 
 <div>
-    @Html.ActionLink("Back to List", "IndexAdmin")
+    @Html.ActionLink(Resources.BackToList, "IndexAdmin")
 </div>
 
 @section Scripts {

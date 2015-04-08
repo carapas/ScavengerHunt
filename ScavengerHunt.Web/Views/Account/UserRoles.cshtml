@@ -1,10 +1,10 @@
 ﻿@model ScavengerHunt.Web.Models.SelectUserRolesViewModel
 
 @{
-    ViewBag.Title = "User Roles";
+    ViewBag.Title = @Resources.Roles;
 }
 
-<h2>Roles for user @Html.DisplayFor(model => model.UserName)</h2>
+<h2>@Resources.RolesForUser @Html.DisplayFor(model => model.UserName)</h2>
 <hr />
 
 @using (Html.BeginForm("UserRoles", "Account", FormMethod.Post, new { encType = "multipart/form-data", name = "myform" }))
@@ -28,7 +28,7 @@
         </table>
         <br />
         <hr />
-        <input type="submit" value="Save" class="btn btn-success" /> | @Html.ActionLink("Back to List", "Index")
+        <input type="submit" value=@Resources.Save class="btn btn-success" /> | @Html.ActionLink("Back to List", "Index")
 
     </div>
 }

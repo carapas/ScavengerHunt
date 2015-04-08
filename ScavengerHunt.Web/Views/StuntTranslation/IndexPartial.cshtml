@@ -1,18 +1,18 @@
 ﻿@model ScavengerHunt.Web.Models.Stunt
 
 <p>
-    @Html.ActionLink("Create New", "Create", new { id = Model.Id })
+    @Html.ActionLink(Resources.CreateNew, "Create", new { id = Model.Id })
 </p>
 <table class="table">
     <tr>
         <th>
-            Language
+            @Html.DisplayFor(model => model.Translations.First().Language)
         </th>
         <th>
-            Title
+            @Html.DisplayFor(model => model.Title)
         </th>
         <th>
-            ShortDescription
+            @Html.DisplayFor(model => model.ShortDescription)
         </th>
         <th></th>
     </tr>

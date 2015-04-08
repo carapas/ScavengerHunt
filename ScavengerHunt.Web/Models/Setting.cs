@@ -10,8 +10,11 @@ namespace ScavengerHunt.Web.Models
     public class Setting
     {
         [Key]
+        [Display(Name = "Key", ResourceType = typeof(Resources.Resources))]
         public string Key { get; set; }
+        [Display(Name = "Value", ResourceType = typeof(Resources.Resources))]
         public string Value { get; set; }
+        [Display(Name = "Description", ResourceType = typeof(Resources.Resources))]
         public string Description { get; set; }
     }
 

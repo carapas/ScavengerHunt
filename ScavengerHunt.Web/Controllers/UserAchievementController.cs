@@ -24,6 +24,10 @@ namespace ScavengerHunt.Web.Controllers
         public ActionResult Index()
         {
             var user = db.Users.Find(User.Identity.GetUserId());
+            if(user == null)
+            {
+               return RedirectToAction("Index", "Achievement");
+            }
             foreach (UserAchievement achievement in user.UserAchievement)
             {
                 achievement.Achievement = db.Achievement.Find(achievement.AchievementId);

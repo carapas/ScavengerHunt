@@ -1,14 +1,14 @@
 ﻿@model ScavengerHunt.Web.Models.UserAchievement
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = Resources.Delete;
 }
 
-<h2>Delete</h2>
+<h2>@Resources.Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>@Resources.DeleteValidation</h3>
 <div>
-    <h4>UserAchievement</h4>
+    <h4>@Resources.Achievement</h4>
     <hr />
     <dl class="dl-horizontal">
     </dl>
@@ -17,8 +17,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value=@Resources.Delete class="btn btn-default" /> |
+            @Html.ActionLink(Resources.BackToList, "Index")
         </div>
     }
 </div>

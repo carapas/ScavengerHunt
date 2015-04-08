@@ -3,7 +3,7 @@
 @model UserStunt
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = Resources.Edit;
 }
 
 <h2>@Model.Stunt.Title</h2>
@@ -32,23 +32,23 @@
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.Submission, new { @class = "form-control" })
                 <div class="text-muted">
-                    <span class="glyphicon glyphicon-info-sign"></span> The judges are expecting a @Html.DisplayFor(model => model.Stunt.Type)
+                    <span class="glyphicon glyphicon-info-sign"></span> @Resources.ExpectingType The judges are expecting a @Html.DisplayFor(model => model.Stunt.Type)
                     @switch (Model.Stunt.Type)
                     {
                         case StuntTypeEnum.Picture:
-                            <span>May we recommend <a href="https://imgur.com/">imgur</a>?</span>
+                            <span>@Resources.Recommend <a href="https://imgur.com/">imgur</a>?</span>
                             break;
                         case StuntTypeEnum.Video:
-                            <span>May we recommend <a href="https://youtube.com/">Youtube</a>?</span>
+                            <span>@Resources.Recommend <a href="https://youtube.com/">Youtube</a>?</span>
                             break;
                         case StuntTypeEnum.Live:
                             <span>Go see them!</span>
                             break;
                         case StuntTypeEnum.File:
-                            <span>May we recommend <a href="https://www.dropbox.com/">Dropbox</a>?</span>
+                            <span>@Resources.Recommend <a href="https://www.dropbox.com/">Dropbox</a>?</span>
                             break;
                         case StuntTypeEnum.Flag:
-                            <span>It will be automatically corrected upon submission.</span>
+                            <span>@Resources.FlagSubmissions</span>
                             break;
                     }
                 </div>

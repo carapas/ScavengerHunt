@@ -2,17 +2,17 @@
 @model IEnumerable<ScavengerHunt.Web.Models.UserStunt>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Resources.Judgement;
 }
 
-<h2>Judgement Queue</h2>
+<h2>@ViewBag.Title</h2>
 
-<p>@Html.ActionLink("Flag Submissions", "Flags")</p>
+<p>@Html.ActionLink(Resources.FlagSubmissions, "Flags")</p>
 
 <table class="table table-hover">
     <tr>
         <th>
-            Team Name
+            @Html.DisplayNameFor(model => model.User.UserName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Stunt.Title)
@@ -43,7 +43,7 @@
             @Html.DisplayFor(modelItem => item.JudgeNotes, "Tooltip", new { Text = "Notes" })
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id })
+            @Html.ActionLink(Resources.Edit, "Edit", new { id=item.Id })
         </td>
     </tr>
 }
@@ -51,7 +51,7 @@
 
 @if (Model.Any(x => x.Done))
 {
-    <h2>Already Judged</h2>
+    <h2>@Resources.Judged</h2>
 
     <table class="table table-hover">
         <tr>
@@ -93,7 +93,7 @@
                     @Html.DisplayFor(modelItem => item.Status)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                    @Html.ActionLink(Resources.Edit, "Edit", new { id = item.Id })
                 </td>
             </tr>
         }

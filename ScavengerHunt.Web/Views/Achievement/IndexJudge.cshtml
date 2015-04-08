@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<ScavengerHunt.Web.Models.Achievement>
 
 @{
-    ViewBag.Title = "IndexJudge";
+    ViewBag.Title = Resources.Achievement;
 }
 
-<h2>IndexJudge</h2>
+<h2>@ViewBag.Title</h2>
 
 <table class="table">
     <tr>
@@ -38,7 +38,7 @@
             @Html.DisplayFor(modelItem => item.Image)
         </td>
         <td>
-            @Html.ActionLink("Asign", "Asign", new { id = item.Id }) 
+            @Html.ActionLink(Resources.Asign, "Asign", new { id = item.Id }) 
         </td>
     </tr>
 }

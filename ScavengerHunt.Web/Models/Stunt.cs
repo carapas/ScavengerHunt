@@ -16,34 +16,45 @@ namespace ScavengerHunt.Web.Models
         [Display(ResourceType = typeof(Resources.Resources), Name = "MaximumScore")]
         public int MaxScore { get; set; }
 
+        [Display(ResourceType = typeof(Resources.Resources), Name = "Keyword")]
         public string Keyword { get; set; }
+
+        [Display(ResourceType = typeof(Resources.Resources), Name = "Type")]
         public StuntTypeEnum Type { get; set; }
 
+        [Display(ResourceType = typeof(Resources.Resources), Name = "Published")]
         public bool Published { get; set; }
         
         [Display(ResourceType = typeof(Resources.Resources), Name = "JudgeNotes")]
         public string JudgeNotes { get; set; }
 
+        [Display(ResourceType = typeof(Resources.Resources), Name = "Collapsible")]
         public bool Collapsible { get; set; }
 
+        [Display(ResourceType = typeof(Resources.Resources), Name = "Translations")]
         public virtual ICollection<StuntTranslation> Translations { get; set; }
 
         [JsonIgnore]
         public virtual ICollection<UserStunt> TeamStunts { get; set; }
 
         [JsonIgnore]
+        [Display(ResourceType = typeof(Resources.Resources), Name = "Title")]
         public virtual string Title { get; set; }
 
         [JsonIgnore]
+        [Display(ResourceType = typeof(Resources.Resources), Name = "ShortDescription")]
         public virtual string ShortDescription { get; set; }
 
         [JsonIgnore]
+        [Display(ResourceType = typeof(Resources.Resources), Name = "LongDescription")]
         public virtual string LongDescription { get; set; }
 
         [JsonIgnore]
+        [Display(ResourceType = typeof(Resources.Resources), Name = "Slideshow")]
         public virtual string Slideshow { get; set; }
 
         [JsonIgnore]
+        [Display(ResourceType = typeof(Resources.Resources), Name = "HasSlideshow")]
         public virtual bool HasSlideshow { get; set; }
 
         public Stunt()

@@ -134,7 +134,7 @@ namespace ScavengerHunt.Web.Controllers
             var userid = User.Identity.GetUserId();
             var user = db.Users.Find(userid);
 
-            if (user == null) return RedirectToAction("Login", "Account");
+            if (user == null) return RedirectToAction("Description", "Stunt");
             if (user.Team == null) return RedirectToAction("Start", "Team");
             if (user.UserStunts.All(x => x.Id != id)) return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
 

@@ -18,27 +18,27 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Puzzle Whatever", "Index", "Home", null, new { @class = "navbar-brand" })
+                @Html.ActionLink(Resources.ScavengerHunt, "Index", "Home", null, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Teams", "Index", "Team")</li>
-                    <li>@Html.ActionLink("Stunts", "Index", "UserStunt")</li>
+                    <li>@Html.ActionLink(Resources.Teams, "Index", "Team")</li>
+                    <li>@Html.ActionLink(Resources.Stunts, "Index", "UserStunt")</li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Scoreboard</a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">@Resources.Scoreboard</a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Users", "Index", "Scoreboard")</li>
-                            <li>@Html.ActionLink("Teams", "Teams", "Scoreboard")</li>
+                            <li>@Html.ActionLink(Resources.Members, "Index", "Scoreboard")</li>
+                            <li>@Html.ActionLink(Resources.Teams, "Teams", "Scoreboard")</li>
                         </ul>
                     </li>
-                    <li>@Html.ActionLink("Achievements", "Index", "UserAchievement")</li>
+                    <li>@Html.ActionLink(Resources.Achievement, "Index", "UserAchievement")</li>
                     @if (User.IsInRole("Judge") || User.IsInRole("Admin"))
                     {
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Judge</a>
                             <ul class="dropdown-menu">
                                 <li>@Html.ActionLink("Judge", "Index", "Judge")</li>
-                                <li>@Html.ActionLink("Achievements", "IndexJudge", "Achievement")</li>
+                                <li>@Html.ActionLink(Resources.Achievement, "IndexJudge", "Achievement")</li>
                             </ul>
                         </li>
                     }
@@ -47,11 +47,11 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin</a>
                             <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Stunts", "IndexAdmin", "Stunt")</li>
-                                <li>@Html.ActionLink("Teams", "IndexAdmin", "Team")</li>
-                                <li>@Html.ActionLink("Users", "Index", "Account")</li>
-                                <li>@Html.ActionLink("Achievements", "Index", "Achievement")</li>
-                                <li>@Html.ActionLink("Settings", "Index", "Settings")</li>
+                                <li>@Html.ActionLink(Resources.Stunts, "IndexAdmin", "Stunt")</li>
+                                <li>@Html.ActionLink(Resources.Teams, "IndexAdmin", "Team")</li>
+                                <li>@Html.ActionLink(Resources.Members, "Index", "Account")</li>
+                                <li>@Html.ActionLink(Resources.Achievement, "Index", "Achievement")</li>
+                                <li>@Html.ActionLink(Resources.Settings, "Index", "Settings")</li>
                             </ul>
                         </li>
                     }

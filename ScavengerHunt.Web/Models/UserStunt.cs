@@ -11,6 +11,8 @@ namespace ScavengerHunt.Web.Models
     public class UserStunt
     {
         public int Id { get; set; }
+
+        [Display(ResourceType = typeof(Resources.Resources), Name = "Score")]
         public int Score { get; set; }
 
         public DateTime DateUpdated { get; set; }
@@ -29,8 +31,11 @@ namespace ScavengerHunt.Web.Models
 
         // TODO: Add support for stunt owner
 
+        [Display(ResourceType = typeof(Resources.Resources), Name = "Status")]
         public UserStuntStatusEnum Status { get; set; }
+        [Display(ResourceType = typeof(Resources.Resources), Name = "Member")]
         public virtual ApplicationUser User { get; set; }
+        [Display(ResourceType = typeof(Resources.Resources), Name = "Stunt")]
         public virtual Stunt Stunt { get; set; }
 
         public virtual bool Done

@@ -3,12 +3,10 @@
 @model IEnumerable<ScavengerHunt.Web.Models.Stunt>
 
 @{
-    ViewBag.Title = "Data Management";
+    ViewBag.Title = Resources.DataManagement;
 }
 
 <h2>@ViewBag.Title</h2>
-
-Use this tool to export and import Stunts in a human readable, json format.
 
 <div class="row">
     <div class="col-md-6">
@@ -21,11 +19,10 @@ Use this tool to export and import Stunts in a human readable, json format.
     </div>
 </div>
 
-<h2>Delete Stunts</h2>
-<p>Use this button to delete all the stunts.</p>
+<h2>@Resources.Delete @Resources.Stunts</h2>
 @using (Html.BeginForm("DeleteAll", "Stunt"))
 {
     @Html.AntiForgeryToken()
 
-    <input type="submit" value="Delete" class="btn btn-danger" />
+    <input type="submit" value=@Resources.Delete class="btn btn-danger" />
 }
