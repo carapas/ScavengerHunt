@@ -1,17 +1,17 @@
 ﻿@model ScavengerHunt.Web.Models.StuntTranslation
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = Resources.Edit;
 }
 
-<h2>Edit</h2>
+<h2>@ViewBag.Title</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Translation for stunt <kbd>@Model.Stunt.Keyword</kbd></h4>
+        <h4>@Resources.Stunt <kbd>@Model.Stunt.Keyword</kbd></h4>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.Id)
@@ -51,17 +51,25 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.HasSlideshow, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.HasSlideshow)
+                @Html.ValidationMessageFor(model => model.HasSlideshow)
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.Slideshow, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextAreaFor(model => model.Slideshow, new { @class = "form-control", @style = "height: 100px" })
-                <span class="text-muted"><span class="glyphicon glyphicon-info-sign"></span> Use this <a href="http://flickrit.com/index.php">http://flickrit.com/</a> to create slideshow</span>
+                <span class="text-muted"><span class="glyphicon glyphicon-info-sign"></span> Use this <a href="http://flickrit.com/index.php">http://flickrit.com/</a> to create slideshow (600x400)</span>
                 @Html.ValidationMessageFor(model => model.Slideshow)
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-success" />
+                <input type="submit" value=@Resources.Save class="btn btn-success" />
             </div>
         </div>
     </div>

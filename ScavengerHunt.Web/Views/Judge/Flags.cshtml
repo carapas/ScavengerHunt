@@ -2,16 +2,16 @@
 @model IEnumerable<ScavengerHunt.Web.Models.UserStunt>
 
 @{
-    ViewBag.Title = "Flag Sumbissions";
+    ViewBag.Title = Resources.FlagSubmissions;
 }
 
-<h2>Flag Submissions</h2>
+<h2>@ViewBag.Title</h2>
 
 <table class="table table-hover">
     <tr>
         <th></th>
         <th>
-            Team Name
+            @Resources.Members
         </th>
         <th style="width: 50%;">
             @Html.DisplayNameFor(model => model.Stunt.Title)
@@ -21,13 +21,13 @@
             @Html.DisplayNameFor(model => model.Submission)
         </th>
         <th>
-            Expecting
+            @Resources.Expecting
         </th>
         <th>
             
         </th>
         <th>
-            Tries
+            @Resources.Tries
         </th>
         <th></th>
     </tr>
@@ -39,7 +39,7 @@
             <span class="glyphicon glyphicon-chevron-down"></span>
         </th>
         <td>
-            @Html.DisplayFor(modelItem => item.Team.Name)
+            @Html.DisplayFor(modelItem => item.User.FullName)
         </td>
         <td>
             <kbd>@Html.DisplayFor(modelItem => item.Stunt.Keyword)</kbd>
@@ -65,7 +65,7 @@
             @Html.DisplayFor(modelItem => item.JudgeNotes)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            @Html.ActionLink(Resources.Edit, "Edit", new { id = item.Id })
         </td>
     </tr>
 }

@@ -117,8 +117,62 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BackToList" xml:space="preserve">
+    <value>Retour à la liste</value>
+  </data>
+  <data name="BonusPoints" xml:space="preserve">
+    <value>Points bonus</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Ajouter</value>
+  </data>
+  <data name="CreateOrJoinTeam" xml:space="preserve">
+    <value>Ajouter ou joindre une équipe!</value>
+  </data>
+  <data name="CurrentRankings" xml:space="preserve">
+    <value>Rangs actuels</value>
+  </data>
+  <data name="Done" xml:space="preserve">
+    <value>Fait</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="HomeJumbotronLead" xml:space="preserve">
+    <value>Les puzzles whatever sont des petits défis et challenges informatiques réguliers</value>
+  </data>
+  <data name="Join" xml:space="preserve">
+    <value>Joindre</value>
+  </data>
+  <data name="JoinExistingTeam" xml:space="preserve">
+    <value>Joindre une équipe existante</value>
+  </data>
+  <data name="JoinExistingTeamExplanation" xml:space="preserve">
+    <value>Si vous équipe existe déjà et que vous avez votre jeton</value>
+  </data>
+  <data name="Judged" xml:space="preserve">
+    <value>Corrigé</value>
+  </data>
+  <data name="JudgeFeedback" xml:space="preserve">
+    <value>Commentaire du correcteur</value>
+  </data>
+  <data name="JudgeNotes" xml:space="preserve">
+    <value>Notes du correcteur</value>
+  </data>
   <data name="LongDescription" xml:space="preserve">
     <value>Description longue</value>
+  </data>
+  <data name="MaximumScore" xml:space="preserve">
+    <value>Pointage maximal</value>
+  </data>
+  <data name="Membres" xml:space="preserve">
+    <value>Membres</value>
+  </data>
+  <data name="Notes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Enregistrer</value>
   </data>
   <data name="ScavengerHunt" xml:space="preserve">
     <value>Chasse au trésor</value>
@@ -126,7 +180,238 @@
   <data name="ShortDescription" xml:space="preserve">
     <value>Description courte</value>
   </data>
+  <data name="SourceCode" xml:space="preserve">
+    <value>Code source</value>
+  </data>
+  <data name="Start" xml:space="preserve">
+    <value>Débutez</value>
+  </data>
+  <data name="StartJourney" xml:space="preserve">
+    <value>Débutez votre aventure!</value>
+  </data>
+  <data name="StartJourneyExplanation" xml:space="preserve">
+    <value>Vous faites partie d'une équipe et vous êtes prêt à vous lancer!</value>
+  </data>
+  <data name="Stunt" xml:space="preserve">
+    <value>Puzzle</value>
+  </data>
+  <data name="StuntActivity" xml:space="preserve">
+    <value>Activité des puzzles</value>
+  </data>
   <data name="StuntList" xml:space="preserve">
     <value>Liste des défis</value>
+  </data>
+  <data name="Stunts" xml:space="preserve">
+    <value>Puzzles</value>
+  </data>
+  <data name="SuntList" xml:space="preserve">
+    <value>Liste des puzzles</value>
+  </data>
+  <data name="TeamStatus" xml:space="preserve">
+    <value>Vos {0} membres ont ramassés un total de {1} points en {2}</value>
+  </data>
+  <data name="Team_notes" xml:space="preserve">
+    <value>Notes de l'équipe</value>
+  </data>
+  <data name="YourBonusPoints" xml:space="preserve">
+    <value>Vous avez aussi {0} points bonus</value>
+  </data>
+  <data name="YourTokenIs" xml:space="preserve">
+    <value>Votre jeton secret est</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>À propos</value>
+  </data>
+  <data name="Achievement" xml:space="preserve">
+    <value>Exploits</value>
+  </data>
+  <data name="AreYouReady" xml:space="preserve">
+    <value>Êtes-vous prêt????</value>
+  </data>
+  <data name="Asign" xml:space="preserve">
+    <value>Asigner</value>
+  </data>
+  <data name="capped" xml:space="preserve">
+    <value>à répondu</value>
+  </data>
+  <data name="ChangePassword" xml:space="preserve">
+    <value>Modifier mot de passe</value>
+  </data>
+  <data name="ChangePasswordForm" xml:space="preserve">
+    <value>Formulaire de modification du mot de passe</value>
+  </data>
+  <data name="Collapsible" xml:space="preserve">
+    <value>Menu dépliant</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirmez nouveau mot de passe</value>
+  </data>
+  <data name="Contact" xml:space="preserve">
+    <value>Contact</value>
+  </data>
+  <data name="ContactUser" xml:space="preserve">
+    <value>Membre de référence</value>
+  </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>Ajouter nouveau</value>
+  </data>
+  <data name="DataManagement" xml:space="preserve">
+    <value>Gestion de données</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Effacer</value>
+  </data>
+  <data name="DeleteValidation" xml:space="preserve">
+    <value>Êtes-vous certain de vouloir effacer ceci?</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Documentation" xml:space="preserve">
+    <value>Documentation</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Courriel</value>
+  </data>
+  <data name="Expecting" xml:space="preserve">
+    <value>Réponse attendue</value>
+  </data>
+  <data name="ExpectingType" xml:space="preserve">
+    <value>Les juges demandent un/une</value>
+  </data>
+  <data name="FlagSubmissions" xml:space="preserve">
+    <value>Soumission corrigées automatiquement</value>
+  </data>
+  <data name="For" xml:space="preserve">
+    <value>pour</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Nom complet</value>
+  </data>
+  <data name="HasSlideshow" xml:space="preserve">
+    <value>A un diaporama</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Salut</value>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>Acceuil</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="Judgement" xml:space="preserve">
+    <value>Jugement</value>
+  </data>
+  <data name="Key" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="Keyword" xml:space="preserve">
+    <value>Mot-clefs</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Langue</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Connexion</value>
+  </data>
+  <data name="ManageTeam" xml:space="preserve">
+    <value>Gestion des équipes</value>
+  </data>
+  <data name="ManageUsers" xml:space="preserve">
+    <value>Gestion du membre</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Nom</value>
+  </data>
+  <data name="NewPassword" xml:space="preserve">
+    <value>Nouveau mot de passe</value>
+  </data>
+  <data name="NumberOfRanks" xml:space="preserve">
+    <value>Nombre de rangs</value>
+  </data>
+  <data name="OldPassword" xml:space="preserve">
+    <value>Mot de passe actuel</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Mot de passe</value>
+  </data>
+  <data name="PasswordLengthError" xml:space="preserve">
+    <value>Le nouveau mot de passe doit être composé d'au moins {2} caractères.</value>
+  </data>
+  <data name="PasswordMismatchError" xml:space="preserve">
+    <value>Le nouveau mot de passe et celui de confirmation sont différents</value>
+  </data>
+  <data name="Points" xml:space="preserve">
+    <value>points!</value>
+  </data>
+  <data name="Published" xml:space="preserve">
+    <value>Publié</value>
+  </data>
+  <data name="Rank" xml:space="preserve">
+    <value>Rang</value>
+  </data>
+  <data name="Ranks" xml:space="preserve">
+    <value>Rangs</value>
+  </data>
+  <data name="Recommend" xml:space="preserve">
+    <value>May we recommend</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Se souvenir de moi?</value>
+  </data>
+  <data name="Roles" xml:space="preserve">
+    <value>Rôles</value>
+  </data>
+  <data name="RolesForUser" xml:space="preserve">
+    <value>Rôles pour le membre </value>
+  </data>
+  <data name="Score" xml:space="preserve">
+    <value>Pointage</value>
+  </data>
+  <data name="Scoreboard" xml:space="preserve">
+    <value>Tableau de pointage</value>
+  </data>
+  <data name="ScoreToAchieve" xml:space="preserve">
+    <value>Pointage pour obtenir le rang</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="Stats" xml:space="preserve">
+    <value>Statistiques</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>Statut</value>
+  </data>
+  <data name="Team" xml:space="preserve">
+    <value>Équipe</value>
+  </data>
+  <data name="Teams" xml:space="preserve">
+    <value>Équipes</value>
+  </data>
+  <data name="TeamsScoreboard" xml:space="preserve">
+    <value>Pointage des équipes</value>
+  </data>
+  <data name="Token" xml:space="preserve">
+    <value>Jeton</value>
+  </data>
+  <data name="Translations" xml:space="preserve">
+    <value>Traductions</value>
+  </data>
+  <data name="Tries" xml:space="preserve">
+    <value>Essais</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Nom d'utilisateur</value>
+  </data>
+  <data name="Value" xml:space="preserve">
+    <value>Valeur</value>
+  </data>
+  <data name="YourAreLoggedInAs" xml:space="preserve">
+    <value>Vous êtes connecté en tant que</value>
   </data>
 </root>

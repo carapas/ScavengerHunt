@@ -1,13 +1,13 @@
 ﻿@model ScavengerHunt.Web.Models.Team
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Resources.Team;
 }
 
-<h2>Details</h2>
+<h2>@ViewBag.Title</h2>
 
 <div>
-    <h4>Team</h4>
+    <h4>@Resources.Team</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -40,6 +40,6 @@
 </div>
 <br/>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(Resources.Edit, "Edit", new { id = Model.Id }) |
+    @Html.ActionLink(Resources.BackToList, "Index")
 </p>

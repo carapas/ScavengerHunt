@@ -10,17 +10,25 @@ namespace ScavengerHunt.Web.Models
     // You can add profile data for the user by adding more properties to your User class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
     public class ApplicationUser : IdentityUser
     {
+        [Display(Name = "Team", ResourceType = typeof(Resources.Resources))]
         public virtual Team Team { get; set; }
 
+        [Display(Name = "Email", ResourceType = typeof(Resources.Resources))]
         public virtual string Email { get; set; }
 
+        [Display(Name = "FullName", ResourceType = typeof(Resources.Resources))]
         public virtual string FullName { get; set; }
 
+        [Display(Name = "Rank", ResourceType = typeof(Resources.Resources))]
         public virtual Rank Rank { get; set; }
 
         [JsonIgnore]
         public virtual ICollection<UserStunt> UserStunts { get; set; }
 
+        [JsonIgnore]
+        public virtual ICollection<UserAchievement> UserAchievement { get; set; }
+  
+        [Display(Name = "Score", ResourceType = typeof(Resources.Resources))]
         public virtual int Score
         {
             get

@@ -1,0 +1,40 @@
+﻿@using ScavengerHunt.Web.Resources
+@model IEnumerable<ScavengerHunt.Web.Models.UserAchievement>
+
+@{
+    ViewBag.Title = Resources.Achievement;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink(Resources.CreateNew, "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayFor(model => model.Achievement.Name)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.Achievement.Description)
+        </th>
+        <th>
+            @Html.DisplayFor(model => model.Achievement.Image)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Achievement.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Achievement.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Achievement.Image)
+        </td>
+    </tr>
+}
+
+</table>

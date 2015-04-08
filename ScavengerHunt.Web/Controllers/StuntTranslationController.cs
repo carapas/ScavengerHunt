@@ -48,7 +48,7 @@ namespace ScavengerHunt.Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Create([Bind(Include = "Id,Language,Title,ShortDescription, LongDescription, Slideshow")] StuntTranslation stunttranslation, int id)
+        public ActionResult Create([Bind(Include = "Id,Language,Title,ShortDescription,LongDescription,Slideshow,HasSlideshow")] StuntTranslation stunttranslation, int id)
         {
             if (ModelState.IsValid)
             {
@@ -87,7 +87,7 @@ namespace ScavengerHunt.Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ValidateInput(false)]
-        public ActionResult Edit([Bind(Include = "Id,Language,Title,ShortDescription, LongDescription, Slideshow")] StuntTranslation stunttranslation)
+        public ActionResult Edit([Bind(Include = "Id,Language,Title,ShortDescription,LongDescription,Slideshow,HasSlideshow")] StuntTranslation stunttranslation)
         {
             if (ModelState.IsValid)
             {
@@ -98,6 +98,7 @@ namespace ScavengerHunt.Web.Controllers
                 st.ShortDescription = stunttranslation.ShortDescription;
                 st.LongDescription = stunttranslation.LongDescription;
                 st.Slideshow = stunttranslation.Slideshow;
+                st.HasSlideshow = stunttranslation.HasSlideshow;
 
                 db.Entry(st).State = EntityState.Modified;
                 db.SaveChanges();

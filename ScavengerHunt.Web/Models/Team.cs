@@ -14,12 +14,15 @@ namespace ScavengerHunt.Web.Models
     {
         [JsonIgnore]
         public int Id { get; set; }
+        [Display(ResourceType = typeof(Resources.Resources), Name = "Name")]
         public string Name { get; set; }
+        [Display(ResourceType = typeof(Resources.Resources), Name = "Token")]
         public string Token { get; set; }
         public string Tagline { get; set; }
         public string Url { get; set; }
         public string LogoUrl { get; set; }
         public string LogoHoverUrl { get; set; }
+        [Display(ResourceType = typeof(Resources.Resources), Name = "NumberOfRanks")]
         public int NumberOfRanks { get; set; }
 
         [Display(ResourceType = typeof(Resources.Resources), Name = "BonusPoints")]
@@ -27,12 +30,15 @@ namespace ScavengerHunt.Web.Models
         public int BonusPoints { get; set; }
         
         [JsonIgnore]
+        [Display(ResourceType = typeof(Resources.Resources), Name = "Members")]
         public virtual ICollection<ApplicationUser> Members { get; set; }
 
         [JsonIgnore]
+        [Display(ResourceType = typeof(Resources.Resources), Name = "ContactUser")]
         public virtual ApplicationUser ContactUser { get; set; }
 
         [JsonIgnore]
+        [Display(ResourceType = typeof(Resources.Resources), Name = "Ranks")]
         public virtual ICollection<Rank> Ranks { get; set; }
 
         // TODO: Team URL
@@ -40,6 +46,7 @@ namespace ScavengerHunt.Web.Models
         // TODO: Team Logo
         
         [JsonIgnore]
+        [Display(ResourceType = typeof(Resources.Resources), Name = "Score")]
         public virtual int Score
         {
             get

@@ -190,6 +190,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AchievementController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JudgeController.cs" />
@@ -198,6 +199,7 @@
     <Compile Include="Controllers\StuntController.cs" />
     <Compile Include="Controllers\StuntTranslationController.cs" />
     <Compile Include="Controllers\TeamController.cs" />
+    <Compile Include="Controllers\UserAchievementController.cs" />
     <Compile Include="Controllers\UserStuntController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -206,6 +208,8 @@
     <Compile Include="MarkdownHelper.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Achievement.cs" />
+    <Compile Include="Models\UserAchievement.cs" />
     <Compile Include="Models\Rank.cs" />
     <Compile Include="Models\ScavengerHuntContext.cs" />
     <Compile Include="Models\ScavengerHuntInitializer.cs" />
@@ -345,13 +349,25 @@
     <Content Include="Views\Scoreboard\Index.cshtml" />
     <Content Include="Views\Team\EditRanks.cshtml" />
     <Content Include="Views\Scoreboard\Teams.cshtml" />
+    <Content Include="Views\Achievement\Index.cshtml" />
+    <Content Include="Views\Achievement\Create.cshtml" />
+    <Content Include="Views\Achievement\Edit.cshtml" />
+    <Content Include="Views\Achievement\Delete.cshtml" />
+    <Content Include="Views\UserAchievement\Delete.cshtml" />
+    <Content Include="Views\UserAchievement\Create.cshtml" />
+    <Content Include="Views\UserAchievement\Index.cshtml" />
+    <Content Include="Views\Achievement\IndexJudge.cshtml" />
+    <Content Include="Views\Achievement\IndexAdmin.cshtml" />
+    <Content Include="Views\UserAchievement\Asign.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\App_LocalResources\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>

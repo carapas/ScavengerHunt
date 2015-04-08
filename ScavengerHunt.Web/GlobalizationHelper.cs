@@ -27,6 +27,7 @@ namespace ScavengerHunt.Web
             stunt.Title = translation.Title;
             stunt.ShortDescription = translation.ShortDescription;
             stunt.LongDescription = translation.LongDescription;
+            stunt.HasSlideshow = translation.HasSlideshow;
             stunt.Slideshow = translation.Slideshow;
             return stunt;
         }

@@ -2,7 +2,7 @@
 @model IList<ScavengerHunt.Web.Models.Team>
 
 @{
-    ViewBag.Title = "Join a team!";
+    ViewBag.Title = Resources.JoinExistingTeam;
 }
 
 <style>
@@ -18,9 +18,10 @@
     }
 </style>
 
-<h2>Etes-vous pret???</h2>
+<h2>@Resources.AreYouReady</h2>
 
-Vous devez faire parti d'une equipe pour participer aux Puzzles Whatever!
+
+@Resources.JoinExistingTeamExplanation
 
 <hr/>
 
