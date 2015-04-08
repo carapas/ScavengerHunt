@@ -78,10 +78,20 @@ namespace ScavengerHunt.Web.Models
             // Create mock data
             var teams = new List<Team>
                             {
-                                new Team() { Name = "Baratheon" },
-                                new Team() { Name = "Stark" },
-                                new Team() { Name = "Tyrell" },
-                                new Team() { Name = "Lanister" }
+                                new Team()
+                                {
+                                    Name = "Sith",
+                                    LogoUrl = "http://i.imgur.com/grIXMOa.jpg",
+                                    LogoHoverUrl = "http://i.imgur.com/GS7ESKo.jpg",
+                                    Token = "SithAreTheBest"
+                                },
+                                new Team()
+                                {
+                                    Name = "Jedi",
+                                    LogoUrl = "http://i.imgur.com/3QhbPji.jpg",
+                                    LogoHoverUrl = "http://i.imgur.com/WyCbZPW.jpg",
+                                    Token = "JediAreTheBest"
+                                }
                             };
             teams.ForEach(t => context.Teams.Add(t));
             context.SaveChanges();

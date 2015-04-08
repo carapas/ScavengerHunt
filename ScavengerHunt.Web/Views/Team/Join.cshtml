@@ -1,10 +1,22 @@
 ﻿@using System.Web.UI.WebControls
-@using Newtonsoft.Json.Linq
-@model Newtonsoft.Json.Linq.JArray
+@model IList<ScavengerHunt.Web.Models.Team>
 
 @{
     ViewBag.Title = "Join a team!";
 }
+
+<style>
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        var className = Model[i].Name;
+        var img = Model[i].LogoUrl;
+        var imgHover = Model[i].LogoHoverUrl;
+       <text>
+       .@className {width: 400px; height: 400px;background-image:url(@img);}
+       .@className:hover {background-image: url(@imgHover);}
+       </text>
+    }
+</style>
 
 <h2>Etes-vous pret???</h2>
 
@@ -12,13 +24,13 @@ Vous devez faire parti d'une equipe pour participer aux Puzzles Whatever!
 
 <hr/>
 
-<div id="team-info" align="center">
-    <button onclick=" previousTeam() " class="btn btn-lg btn-primary">Prev</button>
-    <img id="team-img" width="400" height="400"/>
-    <button onclick=" nextTeam() " class="btn btn-lg btn-primary">Next</button>
-    <br/>
-    <br/>
-    <button onclick=" chooseTeam() " id="team-button" class="btn btn-lg btn-primary"></button>
+<div class="row">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <div class="col-md-6">
+            <button onclick='chooseTeam("@Model[i].Token")' id="team-button" class=@Model[i].Name></button>
+        </div>
+    }
 </div>
 
 <form name="team-form" method="POST" action="/Team/Join">
@@ -27,36 +39,8 @@ Vous devez faire parti d'une equipe pour participer aux Puzzles Whatever!
 </form>
 
 <script type="text/javascript">
-    var teams = @Html.Raw(Model.ToString());
-    var idx = 0;
-
-    function updateTeam() {
-        document.getElementById("team-img").src = teams[idx]["LogoUrl"];
-        document.getElementById("team-button").innerHTML = "Joindre les " + teams[idx]["Name"];
-        document.getElementById("token-value").value = teams[idx]["Token"];
-    }
-
-    updateTeam();
-
-    function previousTeam() {
-        idx--;
-        if (idx < 0) {
-            idx = teams.length - 1;
-        }
-
-        updateTeam();
-    }
-
-    function nextTeam() {
-        idx++;
-        if (idx >= teams.length) {
-            idx = 0;
-        }
-
-        updateTeam();
-    }
-
-    function chooseTeam() {
+    function chooseTeam(token) {
+        document.getElementById("token-value").value = token;
         document.forms["team-form"].submit();
     }
 </script>

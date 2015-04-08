@@ -151,12 +151,7 @@ namespace ScavengerHunt.Web.Controllers
         public ActionResult Join()
         {
             if (!User.Identity.IsAuthenticated) return RedirectToAction("Login", "Account");
-            var jArray = new JArray();
-            foreach (var team in db.Teams.OrderBy(x => x.Members.Count()))
-            {
-                jArray.Add(JObject.FromObject(team));
-            }
-            return View(jArray);
+            return View(db.Teams.ToList());
         }
 
         // Post: /Team/Join/password
@@ -220,7 +215,7 @@ namespace ScavengerHunt.Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include="Id,Name,Token,Tagline,Url,LogoUrl,BonusPoints,NumberOfRanks")] Team team)
+        public ActionResult Edit([Bind(Include="Id,Name,Token,Tagline,Url,LogoUrl,LogoHoverUrl,BonusPoints,NumberOfRanks")] Team team)
         {
             if (ModelState.IsValid)
             {
@@ -232,6 +227,7 @@ namespace ScavengerHunt.Web.Controllers
                 t.Tagline = team.Tagline;
                 t.Url = team.Url;
                 t.LogoUrl = team.LogoUrl;
+                t.LogoHoverUrl = team.LogoHoverUrl;
                 if (team.NumberOfRanks > t.NumberOfRanks)
                 {
                     int diff = team.NumberOfRanks - t.Ranks.Count;

@@ -59,6 +59,14 @@
         </div>
 
         <div class="form-group">
+            @Html.LabelFor(model => model.LogoHoverUrl, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.LogoHoverUrl, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.LogoHoverUrl)
+            </div>
+        </div>
+
+        <div class="form-group">
             @Html.LabelFor(model => model.NumberOfRanks, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.NumberOfRanks, new { @class = "form-control" })

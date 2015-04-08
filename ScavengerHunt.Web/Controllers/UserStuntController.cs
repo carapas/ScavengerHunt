@@ -26,6 +26,8 @@ namespace ScavengerHunt.Web.Controllers
             string currentUserId = User.Identity.GetUserId();
             var user = db.Users.Find(currentUserId);
 
+            if (user.Team == null) return RedirectToAction("Join", "Team");
+
             // Filter and sort stunts
             var stunts =
                 user.UserStunts.Where(x => x.Stunt.Published)

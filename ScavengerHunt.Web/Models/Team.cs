@@ -19,6 +19,7 @@ namespace ScavengerHunt.Web.Models
         public string Tagline { get; set; }
         public string Url { get; set; }
         public string LogoUrl { get; set; }
+        public string LogoHoverUrl { get; set; }
         public int NumberOfRanks { get; set; }
 
         [Display(ResourceType = typeof(Resources.Resources), Name = "BonusPoints")]
