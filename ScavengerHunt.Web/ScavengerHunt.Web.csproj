@@ -289,7 +289,6 @@
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Manage.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Stunt\Create.cshtml" />
     <Content Include="Views\Stunt\Delete.cshtml" />
     <Content Include="Views\Stunt\Edit.cshtml" />
@@ -359,6 +358,7 @@
     <Content Include="Views\Achievement\IndexJudge.cshtml" />
     <Content Include="Views\Achievement\IndexAdmin.cshtml" />
     <Content Include="Views\UserAchievement\Asign.cshtml" />
+    <Content Include="Views\Home\PartialNavBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -160,7 +160,7 @@
     <value>Join an existing team</value>
   </data>
   <data name="JoinExistingTeamExplanation" xml:space="preserve">
-    <value>If your team is already created and you have your token</value>
+    <value>You must choose a side before doing puzzles.</value>
   </data>
   <data name="Members" xml:space="preserve">
     <value>Members</value>
@@ -226,7 +226,7 @@
     <value>Achievement</value>
   </data>
   <data name="AreYouReady" xml:space="preserve">
-    <value>Are you ready???</value>
+    <value>Which side of the force will you join???</value>
   </data>
   <data name="Asign" xml:space="preserve">
     <value>Asign</value>
@@ -413,5 +413,8 @@
   </data>
   <data name="YourAreLoggedInAs" xml:space="preserve">
     <value>You're logged in as</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Title</value>
   </data>
 </root>
