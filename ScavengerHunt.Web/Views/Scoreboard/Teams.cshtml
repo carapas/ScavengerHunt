@@ -26,7 +26,7 @@
     {
         <tr>
             <td>
-                <a href="../User/Index/?id=@item.Id">@Html.DisplayFor(modelItem => item, "TeamName")</a>
+                @Html.DisplayFor(modelItem => item, "TeamName")
             </td>
             <td>@Html.DisplayFor(modelItem => item.Score)</td>
             <td>@Html.DisplayFor(modelItem => item.StuntCount)</td>
