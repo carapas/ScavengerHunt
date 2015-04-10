@@ -42,6 +42,11 @@ namespace ScavengerHunt.Web.Controllers
             return PartialView(db.UserStunts.ToList().Globalize(Language));
         }
 
+        public ActionResult IndexPartial(string id)
+        {
+            return PartialView(db.UserStunts.Where(x => x.User.Id == id && x.Status == UserStuntStatusEnum.Done).ToList().Globalize(Language));
+        }
+
         // GET: /UserStunt/Edit/5
         public ActionResult Edit(int? id)
         {

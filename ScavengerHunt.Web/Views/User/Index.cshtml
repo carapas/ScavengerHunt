@@ -1,0 +1,32 @@
+﻿@using ScavengerHunt.Web.Resources
+@model ScavengerHunt.Web.Models.TeamViewModel
+ 
+@{
+    ViewBag.Title = Model.Team.Name;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Users[0].FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Users[0].Score)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Users)
+    {
+        <tr>
+            <td>
+                <a href="/User/Details/?id=@item.Id">@Html.DisplayFor(modelItem => item.FullName)</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Score)
+            </td>
+        </tr>
+    }
+</table>

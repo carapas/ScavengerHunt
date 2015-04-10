@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ScavengerHunt.Web.Models.UserStunt>
+
+<table class="table">
+    <tr>
+        @if (ViewBag.settings.ShowKeyword)
+        {
+            <th>
+                @Html.DisplayNameFor(model => model.Stunt.Keyword)
+            </th>
+        }
+
+        <th>
+            @Html.DisplayNameFor(model => model.Stunt.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stunt.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Score)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @if (ViewBag.settings.ShowKeyword)
+            {
+                <td>
+                    <kbd>@Html.DisplayFor(modelITem => item.Stunt.Keyword)</kbd>
+                </td>
+            }
+            <td>
+                @Html.DisplayFor(modelItem => item.Stunt, "StuntTitle", new { ForceCollapse = true })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stunt.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item, "Score")
+            </td>
+        </tr>
+    }
+
+</table>

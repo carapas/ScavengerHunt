@@ -27,8 +27,8 @@
      {
          <tr>
              <td>
-                 @Html.DisplayFor(modelItem => item.FullName)
-             </td>
+                 <a href="../User/Details/?id=@item.Id">@Html.DisplayFor(modelItem => item.FullName)</a>
+            </td>
              <td>
                  @Html.DisplayFor(modelItem => item.Team.Name)
              </td>
