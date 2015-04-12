@@ -7,7 +7,8 @@
         <b>@Resources.Members</b><br />
         @foreach (var member in Model.Members)
         {
-            @member.UserName<br />
+            @Html.DisplayFor(m => member, "UserName")
+            <br />
         }
     </div>
     <div class="col-md-3">

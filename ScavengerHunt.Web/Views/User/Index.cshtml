@@ -22,7 +22,7 @@
     {
         <tr>
             <td>
-                <a href="/User/Details/?id=@item.Id">@Html.DisplayFor(modelItem => item.FullName)</a>
+                @Html.DisplayFor(modelItem => item, "UserName")
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Score)

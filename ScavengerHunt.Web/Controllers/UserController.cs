@@ -32,7 +32,7 @@ namespace ScavengerHunt.Web.Controllers
             return View(user);
         }
         // GET: User
-        public ActionResult Index(int id)
+        public ActionResult Index(int? id)
         {
             if (id == null)
             {
@@ -43,7 +43,7 @@ namespace ScavengerHunt.Web.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             TeamViewModel teamview = new TeamViewModel();
             teamview.Team = team;
-            teamview.Users = db.Users.Where(x => x.Team.Id == id).OrderByDescending(x => x.Score).ToList();
+            teamview.Users = db.Users.ToList().Where(x => x.Team != null && x.Team.Id == id).OrderByDescending(x => x.Score).ToList();
 
             return View(teamview);
         }

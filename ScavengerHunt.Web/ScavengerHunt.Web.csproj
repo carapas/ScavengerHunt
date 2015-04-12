@@ -367,6 +367,7 @@
     <Content Include="Views\UserStunt\IndexPartial.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Stunt\UserName.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\UserName.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
