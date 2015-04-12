@@ -12,7 +12,7 @@
 <table class="table table-hover">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.User.UserName)
+            @Html.DisplayNameFor(model => model.User.FullName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Stunt.Title)
@@ -29,7 +29,7 @@
 @foreach (var item in Model.Where(x=>x.Status == UserStuntStatusEnum.Pending).OrderBy(x=>x.DateUpdated)) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.User.UserName)
+            @Html.DisplayFor(modelItem => item.User.FullName)
         </td>
         <td>
             <kbd>@Html.DisplayFor(modelItem => item.Stunt.Keyword)</kbd>
@@ -56,7 +56,7 @@
     <table class="table table-hover">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.User.UserName)
+                @Html.DisplayNameFor(model => model.User.FullName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Stunt.Title)
@@ -76,7 +76,7 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.User.UserName)
+                    @Html.DisplayFor(modelItem => item.User.FullName)
                 </td>
                 <td>
                     <kbd>@Html.DisplayFor(modelItem => item.Stunt.Keyword)</kbd>
