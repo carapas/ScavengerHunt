@@ -1,40 +1,89 @@
 ﻿@using ScavengerHunt.Web.Resources
-@model IEnumerable<ScavengerHunt.Web.Models.UserAchievement>
+@model IList<ScavengerHunt.Web.Models.UserAchievement>
 
-@{
-    ViewBag.Title = Resources.Achievement;
+<style>
+    .grayscale {
+        -webkit-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+        -o-filter: grayscale(100%);
+        filter: grayscale(100%);
+        filter: gray; /* IE 6-9 */
+    }
+</style>
+
+@for(int i=0; i <= Model.Count()/4; i++) {
+    <div class="row" style="padding-top: 5px;">
+        @for (int x = 0; x < 4 && x + i * 4 < Model.Count(); x++)
+        {
+            if (Model[x + i * 4].Achievement.IsSecret && !Model[x + i * 4].IsAssigned)
+            {
+                <div class="col-md-3 text-center">
+                    <h3>Secret</h3>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-3 text-center">
+                    <h3>@Html.DisplayFor(m => m[x + i * 4].Achievement.Name)</h3>
+                </div>
+            }
+        }
+    </div>
+    <div class="row">
+        @for (int x = 0; x < 4 && x + i * 4 < Model.Count(); x++)
+        {
+            if (Model[x + i * 4].IsAssigned)
+            {
+
+                <div class="col-md-3 text-center"><img src="@Html.DisplayFor(m => m[x + i*4].Achievement.Image)" /></div>
+            }
+            else if (!Model[x + i*4].Achievement.IsSecret)
+            {
+                <div class="col-md-3 text-center">
+                    <img class="grayscale" src="@Html.DisplayFor(m => m[x + i*4].Achievement.Image)"/>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-3 text-center">
+                    <img src="http://vignette4.wikia.nocookie.net/scratchpad/images/1/11/Blue_question_mark_icon.svg/revision/latest/scale-to-width/100?cb=20131122141657" />
+                </div>
+            }
+        }
+    </div>
+    <div class="row">
+        @for (int x = 0; x < 4 && x + i * 4 < Model.Count(); x++)
+        {
+            if (Model[x + i * 4].Achievement.IsSecret && !Model[x + i * 4].IsAssigned)
+            {
+                <div class="col-md-3 text-center">
+                    <h4>Secret</h4>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-3 text-center">
+                    <h4>@Html.DisplayFor(m => m[x + i*4].Achievement.Points) Points</h4>
+                </div>
+            }
+        }
+    </div>
+    <div class="row">
+        @for (int x = 0; x < 4 && x + i * 4 < Model.Count(); x++)
+        {
+            if (Model[x + i * 4].Achievement.IsSecret && !Model[x + i * 4].IsAssigned)
+            {
+                <div class="col-md-3 text-center">
+                    <h5>Secret</h5>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-3 text-center">
+                    <h5>@Html.DisplayFor(m => m[x + i*4].Achievement.Description)</h5>
+                </div>
+            }
+        }
+    </div>
 }
-
-<h2>@ViewBag.Title</h2>
-
-<p>
-    @Html.ActionLink(Resources.CreateNew, "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Achievement.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Achievement.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Achievement.Image)
-        </th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Achievement.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Achievement.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Achievement.Image)
-        </td>
-    </tr>
-}
-
-</table>

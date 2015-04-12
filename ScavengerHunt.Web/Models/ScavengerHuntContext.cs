@@ -55,6 +55,11 @@ namespace ScavengerHunt.Web.Models
                 .WithRequired(a => a.User)
                 .WillCascadeOnDelete(true);
 
+            modelBuilder.Entity<ApplicationUser>()
+                .HasMany(a => a.UserAchievement)
+                .WithRequired(a => a.User)
+                .WillCascadeOnDelete(true);
+
             modelBuilder.Entity<UserAchievement>()
                 .HasRequired(a => a.Achievement);
 

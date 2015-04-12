@@ -37,7 +37,7 @@ namespace ScavengerHunt.Web.Controllers
         // GET: Achievement
         public ActionResult Index()
         {
-            return View(db.Achievement.ToList().OrderBy(x => x.Name));
+            return View(db.Achievement.OrderBy(x => x.Name).ToList());
         }
 
         // GET: Achievement
@@ -57,11 +57,23 @@ namespace ScavengerHunt.Web.Controllers
         [HttpPost]
         [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Name,Description,Image")] Achievement achievement)
+        public ActionResult Create([Bind(Include = "Name,Description,Image,Points,IsSecret")] Achievement achievement)
         {
             if (ModelState.IsValid)
             {               
                 db.Achievement.Add(achievement);
+                foreach (var user in db.Users)
+                {
+                    var userAchievement = new UserAchievement()
+                    {
+                        Achievement = achievement,
+                        IsAssigned = false,
+                        User = user
+                    };
+
+                    db.UserAchievement.Add(userAchievement);
+                }
+
                 db.SaveChanges();
 
                 return RedirectToAction("IndexAdmin");
@@ -71,7 +83,7 @@ namespace ScavengerHunt.Web.Controllers
 
         // GET: Achievement/Edit/5
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
@@ -88,7 +100,7 @@ namespace ScavengerHunt.Web.Controllers
         // POST: Achievement/Edit/5
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include = "Id,Name,Description,Image")] Achievement achievement)
+        public ActionResult Edit([Bind(Include = "Id,Name,Description,Image,Points,IsSecret")] Achievement achievement)
         {
             if (ModelState.IsValid)
             {
@@ -102,6 +114,8 @@ namespace ScavengerHunt.Web.Controllers
                 t.Name = achievement.Name;
                 t.Description = achievement.Description;
                 t.Image = achievement.Image;
+                t.Points = achievement.Points;
+                t.IsSecret = achievement.IsSecret;
                 db.Entry(t).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("IndexAdmin");

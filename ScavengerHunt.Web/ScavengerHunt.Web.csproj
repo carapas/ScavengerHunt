@@ -217,6 +217,7 @@
     <Compile Include="Models\Stunt.cs" />
     <Compile Include="Models\StuntTranslation.cs" />
     <Compile Include="Models\Team.cs" />
+    <Compile Include="Models\UserAchievementsAssignViewModels.cs" />
     <Compile Include="Models\UserStunt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Resources.fr.Designer.cs">
@@ -359,6 +360,7 @@
     <Content Include="Views\Achievement\IndexAdmin.cshtml" />
     <Content Include="Views\UserAchievement\Asign.cshtml" />
     <Content Include="Views\Home\PartialNavBar.cshtml" />
+    <Content Include="Views\UserAchievement\PartialIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -377,6 +379,7 @@
     <EmbeddedResource Include="Resources\Resources.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.fr.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

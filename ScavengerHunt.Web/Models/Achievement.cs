@@ -19,5 +19,10 @@ namespace ScavengerHunt.Web.Models
 
         [Display(Name = "Image", ResourceType = typeof(Resources.Resources))]
         public string Image { get; set; }
+
+        public int Points { get; set; }
+
+        [Display(Name = "Secret", ResourceType = typeof(Resources.Resources))]
+        public bool IsSecret { get; set; }
     }
 }

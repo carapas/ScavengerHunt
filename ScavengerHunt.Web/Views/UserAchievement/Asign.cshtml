@@ -1,4 +1,4 @@
-﻿@model ScavengerHunt.Web.Models.UserAchievement
+﻿@model ScavengerHunt.Web.Models.UserAchievementsAssignViewModels
 
 @{
     ViewBag.Title = Resources.Asign;
@@ -22,7 +22,7 @@
             @Html.LabelFor(model => model.UserId, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <input name="AchievementId" type="hidden" id="AchievementId-value" value=@Model.Achievement.Id>
-                @Html.DropDownListFor(x => x.UserId, new SelectList(Model.allUser, "Id", "FullName"))
+                @Html.DropDownListFor(x => x.UserId, new SelectList(Model.AllUser, "Id", "FullName"))
                 @Html.ValidationMessageFor(model => model.UserId)
             </div>
         </div>

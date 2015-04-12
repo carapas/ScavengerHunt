@@ -1,36 +1,74 @@
-﻿@model IEnumerable<ScavengerHunt.Web.Models.Achievement>
+﻿@model IList<ScavengerHunt.Web.Models.Achievement>
 
-@{
-    ViewBag.Title = Resources.Achievement;
+@for (int i = 0; i <= Model.Count(); i++)
+{
+    <div class="row" style="padding-top: 5px;">
+        @for (int x = 0; x < 4 && x + i * 4 < Model.Count(); x++)
+        {
+            if (!Model[x + i*4].IsSecret)
+            {
+                <div class="col-md-3 text-center">
+                    <h3>@Html.DisplayFor(m => m[x + i*4].Name)</h3>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-3 text-center">
+                    <h3>Secret</h3>
+                </div>
+            }
+        }
+    </div>
+    <div class="row">
+        @for (int x = 0; x < 4 && x + i * 4 < Model.Count(); x++)
+        {
+            if (!Model[x + i*4].IsSecret)
+            {
+                <div class="col-md-3 text-center">
+                    <img src="@Html.DisplayFor(m => m[x + i*4].Image)"/>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-3 text-center">
+                    <img src="http://vignette4.wikia.nocookie.net/scratchpad/images/1/11/Blue_question_mark_icon.svg/revision/latest/scale-to-width/100?cb=20131122141657" />
+                </div>
+            }
+        }
+    </div>
+    <div class="row">
+        @for (int x = 0; x < 4 && x + i * 4 < Model.Count(); x++)
+        {
+            if (!Model[x + i*4].IsSecret)
+            {
+                <div class="col-md-3 text-center">
+                    <h4>@Html.DisplayFor(m => m[x + i*4].Points) Points</h4>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-3 text-center">
+                    <h4>Secret</h4>
+                </div>
+            }
+        }
+    </div>
+    <div class="row">
+        @for (int x = 0; x < 4 && x + i * 4 < Model.Count(); x++)
+        {
+            if (!Model[x + i*4].IsSecret)
+            {
+
+                <div class="col-md-3 text-center">
+                    <h5>@Html.DisplayFor(m => m[x + i*4].Description)</h5>
+                </div>
+            }
+            else
+            {
+                <div class="col-md-3 text-center">
+                    <h5>Secret</h5>
+                </div>
+            }
+        }
+    </div>
 }
-
-<h2>@ViewBag.Title</h2>
-
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Image)
-        </td>
-    </tr>
-}
-
-</table>

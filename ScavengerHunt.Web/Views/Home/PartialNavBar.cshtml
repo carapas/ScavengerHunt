@@ -41,13 +41,13 @@
                             <li>@Html.ActionLink(Resources.Stunts, "IndexAdmin", "Stunt")</li>
                             <li>@Html.ActionLink(Resources.Teams, "IndexAdmin", "Team")</li>
                             <li>@Html.ActionLink(Resources.Members, "Index", "Account")</li>
-                            <li>@Html.ActionLink(Resources.Achievement, "Index", "Achievement")</li>
+                            <li>@Html.ActionLink(Resources.Achievement, "IndexAdmin", "Achievement")</li>
                             <li>@Html.ActionLink(Resources.Settings, "Index", "Settings")</li>
                         </ul>
                     </li>
                 }
             </ul>
-            @if (Request.IsAuthenticated)
+            @if (Request.IsAuthenticated && Model != null)
             {
                 using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
                 {

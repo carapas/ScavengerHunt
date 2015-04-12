@@ -28,24 +28,21 @@ namespace ScavengerHunt.Web.Controllers
             {
                return RedirectToAction("Index", "Achievement");
             }
-            foreach (UserAchievement achievement in user.UserAchievement)
-            {
-                achievement.Achievement = db.Achievement.Find(achievement.AchievementId);
-            }
-            return View(user.UserAchievement);
-            //return View(db.UserAchievement.ToList());
+
+            return View(db.UserAchievement.OrderByDescending(x => x.IsAssigned).ToList());
         }
 
         // GET: UserAchievement
-        public ActionResult IndexPartial()
+        public ActionResult PartialIndex(string id)
         {
-            var user = db.Users.Find(User.Identity.GetUserId());
-            foreach (UserAchievement achievement in user.UserAchievement)
+            if (id == null)
             {
-                achievement.Achievement = db.Achievement.Find(achievement.AchievementId);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            return View(user.UserAchievement);
-            //return View(db.UserAchievement.ToList());
+
+            var user = db.Users.Find(id);
+
+            return PartialView(db.UserAchievement.Where(x => x.IsAssigned).ToList());
         }
 
         // GET: UserAchievement/Create
@@ -55,7 +52,7 @@ namespace ScavengerHunt.Web.Controllers
             return View();
         }
 
-        // GET: UserAchievement/Create
+        // GET: UserAchievement/Assign
         [Authorize(Roles = "Judge,Admin")]
         public ActionResult Asign(int? id)
         {
@@ -64,26 +61,23 @@ namespace ScavengerHunt.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var userAchievement = new UserAchievement();
+            var userAchievement = new UserAchievementsAssignViewModels();
             userAchievement.Achievement = achievement;
-            userAchievement.allUser = db.Users.Where(x => !x.UserAchievement.Any(y => y.AchievementId == achievement.Id)).ToList();
+            userAchievement.AllUser = db.Users.Where(x => !x.UserAchievement.FirstOrDefault(y => y.Achievement.Id == achievement.Id).IsAssigned).ToList();
 
             return View(userAchievement);
         }
 
-        // Get: UserAchievement/Asign
+        // Post: UserAchievement/Asign
         [HttpPost]
         [Authorize(Roles = "Judge,Admin")]
         [ValidateAntiForgeryToken]
-        public ActionResult Asign([Bind(Include = "AchievementId,UserId")] UserAchievement userAchievement)
+        public ActionResult Asign([Bind(Include = "AchievementId,UserId")] UserAchievementsAssignViewModels userAchievement)
         {
             if (ModelState.IsValid)
             {
-                userAchievement.allUser = null;
-                db.UserAchievement.Add(userAchievement);
-
                 var user = db.Users.Find(userAchievement.UserId);
-                user.UserAchievement.Add(userAchievement);
+                user.UserAchievement.FirstOrDefault(x => x.Achievement.Id == userAchievement.AchievementId).IsAssigned = true;
                 db.Entry(user).State = EntityState.Modified;
                 db.SaveChanges();
 
