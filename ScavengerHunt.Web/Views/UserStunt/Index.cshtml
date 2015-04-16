@@ -58,9 +58,6 @@
         <td>
             @Html.DisplayFor(modelItem => item.JudgeFeedback, "Tooltip", new { Text = "Judge" })
         </td>
-        <td>
-            @Html.ActionLink(Resources.Edit, "Edit", new { id = item.Id })
-        </td>
     </tr>
 }
 </table>
@@ -118,9 +115,6 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.JudgeFeedback, "Tooltip", new { Text = "Judge" })
-                </td>
-                <td>
-                    @Html.ActionLink(Resources.Edit, "Edit", new { id = item.Id })
                 </td>
             </tr>
         }

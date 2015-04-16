@@ -177,6 +177,7 @@ namespace ScavengerHunt.Web.Controllers
                         // Store the amount of failed tries
                         int tries;
                         int.TryParse(teamStunt.JudgeNotes, out tries);
+                        teamStunt.Status = UserStuntStatusEnum.Available;
 
                         teamStunt.JudgeNotes = (++tries).ToString();
                         db.Entry(teamStunt);

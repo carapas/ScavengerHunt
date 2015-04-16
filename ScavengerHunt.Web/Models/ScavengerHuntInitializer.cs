@@ -81,15 +81,15 @@ namespace ScavengerHunt.Web.Models
                                 new Team()
                                 {
                                     Name = "Sith",
-                                    LogoUrl = "http://i.imgur.com/grIXMOa.jpg",
-                                    LogoHoverUrl = "http://i.imgur.com/GS7ESKo.jpg",
+                                    LogoUrl = "/Content/sithTeamBtn.jpg",
+                                    LogoHoverUrl = "/Content/sithTeamBtnHover.jpg",
                                     Token = "SithAreTheBest"
                                 },
                                 new Team()
                                 {
                                     Name = "Jedi",
-                                    LogoUrl = "http://i.imgur.com/3QhbPji.jpg",
-                                    LogoHoverUrl = "http://i.imgur.com/WyCbZPW.jpg",
+                                    LogoUrl = "/Content/jediBtn.jpg",
+                                    LogoHoverUrl = "/Content/jediBtnHover.jpg",
                                     Token = "JediAreTheBest"
                                 }
                             };
