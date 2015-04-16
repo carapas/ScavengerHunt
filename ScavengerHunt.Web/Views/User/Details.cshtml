@@ -27,8 +27,14 @@
     </dl>
 </div>
 
-@Html.Action("IndexPartial", "UserStunt", Model.Id)
+<div class="row">
+    @Html.Action("IndexPartial", "UserStunt", Model.Id)
+</div>
 
-<p>
+<div style="padding-top:15px">
+    @Html.Action("PartialIndex", "UserAchievement", Model.Id)
+</div>
+
+<p style="padding-top:15px">
     @Html.ActionLink(Resources.BackToList, "Index")
 </p>

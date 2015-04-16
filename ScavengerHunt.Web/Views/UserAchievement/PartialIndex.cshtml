@@ -1,12 +1,15 @@
 ﻿@using ScavengerHunt.Web.Resources
 @model IList<ScavengerHunt.Web.Models.UserAchievement>
 
+<hr />
+<h2>@Resources.Achievement</h2>
+
 @for (int i = 0; i <= Model.Count()/6; i++)
 {
     <div class="row">
         @for (int x = 0; x < 4 && x + i * 6 < Model.Count(); x++)
         {
-            <div class="col-md-2 text-center"><img src="@Html.DisplayFor(m => m[x + i*6].Achievement.Image)" /></div>
+            <div class="col-md-2 text-center"><img title="@Html.DisplayFor(m => m[x + i * 6].Achievement.Name)" src="@Html.DisplayFor(m => m[x + i*6].Achievement.Image)" /></div>
         }
     </div>
 }
