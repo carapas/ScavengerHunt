@@ -70,6 +70,13 @@ namespace ScavengerHunt.Web.Models
             if (Ranks == null || !Ranks.Any())
                 return null;
 
+            var members = Members.ToList().Select(x => x.Score >= score);
+            Rank leaderRank = Ranks.FirstOrDefault(x => x.IsLeader);
+            if (leaderRank != null && members.Count() < 2)
+            {
+                return leaderRank;
+            }
+
             return Ranks.Where(x => x.ScoreToAchieve <= score).OrderByDescending(x => x.ScoreToAchieve).FirstOrDefault();
         }
     }

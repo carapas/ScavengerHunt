@@ -13,6 +13,9 @@
             @Html.DisplayNameFor(model => model.Users[0].FullName)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Users[0].Rank)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Users[0].Score)
         </th>
         <th></th>
@@ -24,6 +27,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item, "UserName")
             </td>
+            <th>
+                <img src="@Html.DisplayFor(modelItem => item.Rank.Icon)" title="@Html.DisplayNameFor(model => model.Users[0].Rank)" />
+            </th>
             <td>
                 @Html.DisplayFor(modelItem => item.Score)
             </td>

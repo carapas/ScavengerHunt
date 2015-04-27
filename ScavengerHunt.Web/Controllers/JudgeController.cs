@@ -60,6 +60,10 @@ namespace ScavengerHunt.Web.Controllers
                 userStunt.Status = UserStuntStatusEnum.Done;
                 userStunt.JudgeFeedback = teamstunt.JudgeFeedback;
                 userStunt.JudgeNotes = teamstunt.JudgeNotes;
+                if (userStunt.Score != 0)
+                {
+                    userStunt.Stunt.CompletedNumber++;
+                }
 
                 user.Rank = user.Team.GetRank(user.Score);
 

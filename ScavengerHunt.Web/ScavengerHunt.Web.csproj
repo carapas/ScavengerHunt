@@ -192,6 +192,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AchievementController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ChallengeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JudgeController.cs" />
     <Compile Include="Controllers\ScoreboardController.cs" />
@@ -368,6 +369,7 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Stunt\UserName.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\UserName.cshtml" />
+    <Content Include="Views\Challenge\DinosaurGame.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

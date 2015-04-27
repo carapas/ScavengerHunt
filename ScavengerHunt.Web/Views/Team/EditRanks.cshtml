@@ -12,14 +12,18 @@
     <table class="table table-striped">
         <tr>
             <td>@Html.LabelFor(model => model.First().ScoreToAchieve)</td>
+            <td>@Html.LabelFor(model => model.First().IsLeader)</td>
             <td>@Html.LabelFor(model => model.First().Name)</td>
+            <td>@Html.LabelFor(model => model.First().Folder)</td>
         </tr>
         @for (int i = 0; i < Model.Count; i++)
         {
             <tr>
                 @Html.HiddenFor(m => m[i].Id)
                 <td>@Html.EditorFor(m => m[i].ScoreToAchieve, new {@class = "form-control"})</td>
+                <td>@Html.EditorFor(m => m[i].IsLeader, new { @class = "form-control" })</td>
                 <td>@Html.TextBoxFor(m => m[i].Name, new {@class = "form-control"})</td>
+                <td>@Html.EditorFor(m => m[i].Folder, new {@class = "form-control"})</td>
             </tr>
         }
     </table>

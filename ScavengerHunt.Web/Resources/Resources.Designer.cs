@@ -97,6 +97,15 @@ namespace ScavengerHunt.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Author.
+        /// </summary>
+        public static string Author {
+            get {
+                return ResourceManager.GetString("Author", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Back to List.
         /// </summary>
         public static string BackToList {
@@ -147,6 +156,15 @@ namespace ScavengerHunt.Web.Resources {
         public static string Collapsible {
             get {
                 return ResourceManager.GetString("Collapsible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of validations.
+        /// </summary>
+        public static string CompletedNumber {
+            get {
+                return ResourceManager.GetString("CompletedNumber", resourceCulture);
             }
         }
         
@@ -313,6 +331,15 @@ namespace ScavengerHunt.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Folder.
+        /// </summary>
+        public static string Folder {
+            get {
+                return ResourceManager.GetString("Folder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to for.
         /// </summary>
         public static string For {
@@ -462,6 +489,15 @@ namespace ScavengerHunt.Web.Resources {
         public static string Language {
             get {
                 return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Leader?.
+        /// </summary>
+        public static string Leader {
+            get {
+                return ResourceManager.GetString("Leader", resourceCulture);
             }
         }
         

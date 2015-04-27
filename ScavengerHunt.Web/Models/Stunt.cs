@@ -31,6 +31,12 @@ namespace ScavengerHunt.Web.Models
         [Display(ResourceType = typeof(Resources.Resources), Name = "Collapsible")]
         public bool Collapsible { get; set; }
 
+        [Display(ResourceType = typeof(Resources.Resources), Name = "Author")]
+        public string Author { get; set; }
+
+        [Display(ResourceType = typeof(Resources.Resources), Name = "CompletedNumber")]
+        public int CompletedNumber { get; set; }
+
         [Display(ResourceType = typeof(Resources.Resources), Name = "Translations")]
         public virtual ICollection<StuntTranslation> Translations { get; set; }
 

@@ -86,12 +86,13 @@ namespace ScavengerHunt.Web.Controllers
                 teamStunt.DateUpdated = DateTime.Now;
 
                 // Special logic if it's a flag
-                if (teamStunt.Stunt.Type == StuntTypeEnum.Flag && !string.IsNullOrEmpty(teamStunt.Stunt.JudgeNotes) && !string.IsNullOrEmpty(teamStunt.Submission))
+                if (teamStunt.Stunt.Type == StuntTypeEnum.Flag && !string.IsNullOrEmpty(teamStunt.Stunt.JudgeNotes))
                 {
                     if (teamstunt.Submission == teamStunt.Stunt.JudgeNotes)
                     {
                         teamStunt.Score = teamStunt.Stunt.MaxScore;
                         teamStunt.Status = UserStuntStatusEnum.Done;
+                        teamStunt.Stunt.CompletedNumber++;
                     }
                     else
                     {
@@ -165,12 +166,13 @@ namespace ScavengerHunt.Web.Controllers
                 teamStunt.DateUpdated = DateTime.Now;
 
                 // Special logic if it's a flag
-                if (teamStunt.Stunt.Type == StuntTypeEnum.Flag && !string.IsNullOrEmpty(teamStunt.Stunt.JudgeNotes) && !string.IsNullOrEmpty(teamStunt.Submission))
+                if (teamStunt.Stunt.Type == StuntTypeEnum.Flag && !string.IsNullOrEmpty(teamStunt.Stunt.JudgeNotes))
                 {
                     if (teamstunt.Submission == teamStunt.Stunt.JudgeNotes)
                     {
                         teamStunt.Score = teamStunt.Stunt.MaxScore;
                         teamStunt.Status = UserStuntStatusEnum.Done;
+                        teamStunt.Stunt.CompletedNumber++;
                     }
                     else
                     {

@@ -4,7 +4,7 @@
     ViewBag.Title = Html.DisplayFor(model => model.FullName);
 }
 
-<h2>@ViewBag.Title</h2>
+<h2><i>@Html.DisplayFor(model => model.Rank.Name)</i> @ViewBag.Title</h2>
 
 <div>
     <hr />

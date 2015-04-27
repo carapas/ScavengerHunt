@@ -29,6 +29,12 @@
             @Html.DisplayNameFor(model => model.Status)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Stunt.Author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stunt.CompletedNumber)
+        </th>
+        <th>
             @Resources.Notes
         </th>
         <th></th>
@@ -54,6 +60,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stunt.Author)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stunt.CompletedNumber)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.JudgeFeedback, "Tooltip", new { Text = "Judge" })
@@ -87,6 +99,12 @@
                 @Html.DisplayNameFor(model => model.Status)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Stunt.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stunt.CompletedNumber)
+            </th>
+            <th>
                 @Resources.Notes
             </th>
             <th></th>
@@ -112,6 +130,12 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stunt.Author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stunt.CompletedNumber)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.JudgeFeedback, "Tooltip", new { Text = "Judge" })
