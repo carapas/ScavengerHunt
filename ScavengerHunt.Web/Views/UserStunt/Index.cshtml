@@ -23,6 +23,9 @@
             @Html.DisplayNameFor(model => model.Stunt.Type)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Stunt.Difficulty)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Score)
         </th>
         <th>
@@ -54,6 +57,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Stunt.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stunt.Difficulty)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item, "Score")

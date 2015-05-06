@@ -54,7 +54,7 @@ namespace ScavengerHunt.Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Create([Bind(Include="Id,Keyword,MaxScore,Type,JudgeNotes,Published,Collapsible,Author")] Stunt stunt)
+        public ActionResult Create([Bind(Include="Id,Keyword,MaxScore,Type,JudgeNotes,Published,Collapsible,Author,Difficulty")] Stunt stunt)
         {
             if (ModelState.IsValid)
             {
@@ -102,7 +102,7 @@ namespace ScavengerHunt.Web.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit([Bind(Include = "Id,Keyword,MaxScore,Type,JudgeNotes,Published,Collapsible,Author,CompletedNumber")] Stunt stunt)
+        public ActionResult Edit([Bind(Include = "Id,Keyword,MaxScore,Type,JudgeNotes,Published,Collapsible,Author,CompletedNumber,Difficulty")] Stunt stunt)
         {
             if (ModelState.IsValid)
             {

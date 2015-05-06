@@ -47,75 +47,6 @@ namespace ScavengerHunt.Web.Controllers
             return PartialView(db.UserStunts.Where(x => x.User.Id == id && x.Status == UserStuntStatusEnum.Done).ToList().Globalize(Language));
         }
 
-        // GET: /UserStunt/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-
-            UserStunt teamstunt = db.UserStunts.Find(id);
-            if (teamstunt == null) return HttpNotFound();
-
-            // Make sure the current user is registered, part of a team and have access to this stunt
-            var userid = User.Identity.GetUserId();
-            var user = db.Users.Find(userid);
-
-            if (user == null) return RedirectToAction("Login", "Account");
-            if (user.Team == null) return RedirectToAction("Start", "Team");
-            if (user.UserStunts.All(x => x.Id != id)) return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
-
-            return View(teamstunt.Globalize(Language));
-        }
-
-        // POST: /UserStunt/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,Submission,Status")] UserStunt teamstunt)
-        {
-            if (ModelState.IsValid)
-            {
-                // Get previous stunt object
-                var teamStunt = db.UserStunts.Find(teamstunt.Id);
-
-                teamStunt.Submission = teamstunt.Submission;
-                teamStunt.Status = teamstunt.Status;
-                teamStunt.DateUpdated = DateTime.Now;
-
-                // Special logic if it's a flag
-                if (teamStunt.Stunt.Type == StuntTypeEnum.Flag && !string.IsNullOrEmpty(teamStunt.Stunt.JudgeNotes))
-                {
-                    if (teamstunt.Submission == teamStunt.Stunt.JudgeNotes)
-                    {
-                        teamStunt.Score = teamStunt.Stunt.MaxScore;
-                        teamStunt.Status = UserStuntStatusEnum.Done;
-                        teamStunt.Stunt.CompletedNumber++;
-                    }
-                    else
-                    {
-                        // Store the amount of failed tries
-                        int tries;
-                        int.TryParse(teamStunt.JudgeNotes, out tries);
-
-                        teamStunt.JudgeNotes = (++tries).ToString();
-                        db.Entry(teamStunt);
-                        db.SaveChanges();
-                        
-                        ModelState.AddModelError("Submission", "Wrong flag");
-                        return View(teamStunt.Globalize(Language));
-                    }
-                }
-
-                db.Entry(teamStunt).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(teamstunt.Globalize(Language));
-        }
-
         public ActionResult Summary()
         {
             // Filter and sort stunts
@@ -166,7 +97,7 @@ namespace ScavengerHunt.Web.Controllers
                 teamStunt.DateUpdated = DateTime.Now;
 
                 // Special logic if it's a flag
-                if (teamStunt.Stunt.Type == StuntTypeEnum.Flag && !string.IsNullOrEmpty(teamStunt.Stunt.JudgeNotes))
+                if (teamStunt.Stunt.Type == StuntTypeEnum.Flag)
                 {
                     if (teamstunt.Submission == teamStunt.Stunt.JudgeNotes)
                     {

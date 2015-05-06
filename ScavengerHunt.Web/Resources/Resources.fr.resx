@@ -432,4 +432,7 @@
   <data name="CompletedNumber" xml:space="preserve">
     <value>Nombre de validations</value>
   </data>
+  <data name="Difficulty" xml:space="preserve">
+    <value>Difficulté</value>
+  </data>
 </root>

@@ -90,7 +90,17 @@ namespace ScavengerHunt.Web.Controllers
                                     Status = UserStuntStatusEnum.Available,
                                     User = user
                                 });
+                            }
 
+                            newUser.UserAchievement = new List<UserAchievement>();
+                            foreach (var achievement in db.Achievement)
+                            {
+                                newUser.UserAchievement.Add(new UserAchievement()
+                                {
+                                    Achievement = achievement,
+                                    IsAssigned = false,
+                                    User = user
+                                });
                             }
 
                             var result = await UserManager.CreateAsync(newUser, matricule);

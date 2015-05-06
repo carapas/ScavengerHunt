@@ -302,7 +302,6 @@
     <Content Include="Views\Team\Edit.cshtml" />
     <Content Include="Views\Team\IndexAdmin.cshtml" />
     <Content Include="Views\Team\CreateDone.cshtml" />
-    <Content Include="Views\UserStunt\Edit.cshtml" />
     <Content Include="Views\UserStunt\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Enum.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Enum.cshtml" />
@@ -369,7 +368,7 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Stunt\UserName.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\UserName.cshtml" />
-    <Content Include="Views\Challenge\DinosaurGame.cshtml" />
+    <Content Include="Views\Challenge\RunTauntaunRun.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
