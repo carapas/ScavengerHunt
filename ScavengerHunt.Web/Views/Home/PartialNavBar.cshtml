@@ -22,6 +22,7 @@
                         <li>@Html.ActionLink(Resources.Teams, "Teams", "Scoreboard")</li>
                     </ul>
                 </li>
+                <li>@Html.ActionLink(Resources.Rules, "Rules", "Home")</li>
                 <li>@Html.ActionLink(Resources.Achievement, "Index", "UserAchievement")</li>
                 @if (User.IsInRole("Judge") || User.IsInRole("Admin"))
                 {

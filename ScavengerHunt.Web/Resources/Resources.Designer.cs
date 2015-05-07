@@ -385,7 +385,7 @@ namespace ScavengerHunt.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Serious Scavenger Hunt is a free, open source web applicaiton for building, running and managing great scavenger hunts..
+        ///   Looks up a localized string similar to In a galaxy not so far away, students from the Université de Sherbrooke join their forces to resolve puzzles..
         /// </summary>
         public static string HomeJumbotronLead {
             get {
@@ -709,6 +709,15 @@ namespace ScavengerHunt.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rules.
+        /// </summary>
+        public static string Rules {
+            get {
+                return ResourceManager.GetString("Rules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         public static string Save {
@@ -718,7 +727,7 @@ namespace ScavengerHunt.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Scavenger Hunt.
+        ///   Looks up a localized string similar to Puzzle Wars.
         /// </summary>
         public static string ScavengerHunt {
             get {
