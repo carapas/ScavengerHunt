@@ -4,3 +4,4 @@
 -Difficulté des puzzles
 -Tri dans les puzzles
 -Catégories de puzzles
+-Choisir la langue
