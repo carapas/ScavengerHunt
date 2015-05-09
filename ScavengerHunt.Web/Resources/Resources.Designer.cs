@@ -79,6 +79,15 @@ namespace ScavengerHunt.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Achievement Points.
+        /// </summary>
+        public static string AchievementPoints {
+            get {
+                return ResourceManager.GetString("AchievementPoints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Which side of the force will you join???.
         /// </summary>
         public static string AreYouReady {
