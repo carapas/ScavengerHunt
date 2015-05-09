@@ -272,7 +272,10 @@
     <Content Include="Content\oauth-twitter.png" />
     <Content Include="Content\OnlyAtTheEndDoYouRealizeThePowerOfTheDarkSide.jpg" />
     <Content Include="Content\Puzzle\DagobahSouvenir.bmp" />
+    <Content Include="Content\Puzzle\EmpireMessage.png" />
+    <Content Include="Content\Puzzle\identification_planetes.txt" />
     <Content Include="Content\Puzzle\Perceptron.jpg" />
+    <Content Include="Content\Puzzle\StarWarsMessage.wav" />
     <Content Include="Content\r2d2.jpg" />
     <Content Include="Content\Ranks\ApprenticeSith\icon.jpg" />
     <Content Include="Content\Ranks\Apprentice\icon.jpg" />
@@ -307,7 +310,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\Puzzle\distance.xlsx" />
     <Content Include="Content\Puzzle\Holocron.rar" />
-    <Content Include="Content\Puzzle\identification_planetes.fred" />
     <Content Include="Content\Puzzle\SW.rar" />
     <Content Include="Content\Puzzle\yoda.rar" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
