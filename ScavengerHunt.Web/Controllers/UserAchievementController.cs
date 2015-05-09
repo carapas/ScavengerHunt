@@ -29,8 +29,9 @@ namespace ScavengerHunt.Web.Controllers
                return RedirectToAction("Index", "Achievement");
             }
 
-            var list = db.UserAchievement.Where(x => x.IsAssigned).ToList();
-            list.AddRange(db.UserAchievement.Where(x => !x.IsAssigned).OrderBy(x => x.Achievement.IsSecret).ToList());
+            var userAchivements = db.UserAchievement.Where(x => x.User == user);
+            var list = userAchivements.Where(x => x.IsAssigned).ToList();
+            list.AddRange(userAchivements.Where(x => !x.IsAssigned).OrderBy(x => x.Achievement.IsSecret).ToList());
             return View(list);
         }
 
@@ -44,7 +45,7 @@ namespace ScavengerHunt.Web.Controllers
 
             var user = db.Users.Find(id);
 
-            return PartialView(db.UserAchievement.Where(x => x.IsAssigned).ToList());
+            return PartialView(db.UserAchievement.Where(x => x.IsAssigned && user == x.User).ToList());
         }
 
         // GET: UserAchievement/Create
