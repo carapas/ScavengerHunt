@@ -8,7 +8,7 @@
     {
         if (User.Identity.IsAuthenticated)
         {
-            <a href="/UserStunt/Description?id=@Model.Id">
+            <a href="/UserStunt/Description?stuntId=@Model.Id">
                 @Html.DisplayFor(modelItem => Model.Title)
             </a>
         }
@@ -32,7 +32,7 @@ else
     {
         if (User.Identity.IsAuthenticated)
         {
-            <a href="/UserStunt/Description?id=@Model.Id">
+            <a href="/UserStunt/Description?stuntId=@Model.Id">
                 @Html.DisplayFor(modelItem => Model.Title)
             </a>
         }
