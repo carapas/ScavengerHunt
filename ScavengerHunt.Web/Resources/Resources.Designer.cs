@@ -727,6 +727,60 @@ namespace ScavengerHunt.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The participants must not share the solutions..
+        /// </summary>
+        public static string Rules1 {
+            get {
+                return ResourceManager.GetString("Rules1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The administrators cannot take part in the puzzles..
+        /// </summary>
+        public static string Rules2 {
+            get {
+                return ResourceManager.GetString("Rules2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do not ask to the administrators for the solutions..
+        /// </summary>
+        public static string Rules3 {
+            get {
+                return ResourceManager.GetString("Rules3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If you find a bug ou if you think a puzzle in not faire, please contact us on our facebook page..
+        /// </summary>
+        public static string Rules4 {
+            get {
+                return ResourceManager.GetString("Rules4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to We will not tolerate bruteforce..
+        /// </summary>
+        public static string Rules5 {
+            get {
+                return ResourceManager.GetString("Rules5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Have fun and good luck, may the best team win!.
+        /// </summary>
+        public static string Rules6 {
+            get {
+                return ResourceManager.GetString("Rules6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         public static string Save {

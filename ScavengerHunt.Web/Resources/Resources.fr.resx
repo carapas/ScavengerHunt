@@ -441,4 +441,22 @@
   <data name="AchievementPoints" xml:space="preserve">
     <value>Points de succès</value>
   </data>
+  <data name="Rules1" xml:space="preserve">
+    <value>Les participants ne doivent pas partager les solutions aux défis.</value>
+  </data>
+  <data name="Rules2" xml:space="preserve">
+    <value>Les administrateurs du site ne peuvent pas prendre part aux défis.</value>
+  </data>
+  <data name="Rules3" xml:space="preserve">
+    <value>Ne pas demander les administrateurs pour les solutions.</value>
+  </data>
+  <data name="Rules4" xml:space="preserve">
+    <value>Si vous trouvez un bug ou vous croyez qu'un défi est injuste, écrivez nous sur notre page facebook.</value>
+  </data>
+  <data name="Rules5" xml:space="preserve">
+    <value>Aucun bruteforce sur le site sera toléré.</value>
+  </data>
+  <data name="Rules6" xml:space="preserve">
+    <value>Amusez-vous et bonne chance! Que la meilleur équipe gagne!</value>
+  </data>
 </root>

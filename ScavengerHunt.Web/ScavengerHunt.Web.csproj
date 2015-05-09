@@ -430,6 +430,7 @@
     <Content Include="Views\Stunt\UserName.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\UserName.cshtml" />
     <Content Include="Views\Challenge\RunTauntaunRun.cshtml" />
+    <Content Include="Views\Home\Rules.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
