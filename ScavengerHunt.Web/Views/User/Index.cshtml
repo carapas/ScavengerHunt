@@ -10,6 +10,9 @@
 <table class="table">
     <tr>
         <th>
+            @Resources.Position
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Users[0].FullName)
         </th>
         <th>
@@ -23,15 +26,20 @@
 
         </th>
     </tr>
-
-    @foreach (var item in Model.Users)
+@{
+    int i = 0;
+    foreach (var item in Model.Users)
     {
+        i++;
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => i)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item, "UserName")
             </td>
             <th>
-                <img src="@Html.DisplayFor(modelItem => item.Rank.Icon)" title="@Html.DisplayNameFor(model => model.Users[0].Rank)" />
+                <img src="@Html.DisplayFor(modelItem => item.Rank.Icon)" title="@Html.DisplayFor(model => item.Rank.Name)" />
             </th>
             <td>
                 @Html.DisplayFor(modelItem => item.Score)
@@ -41,4 +49,5 @@
             </td>
         </tr>
     }
+}
 </table>

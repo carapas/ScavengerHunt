@@ -103,6 +103,10 @@ namespace ScavengerHunt.Web.Controllers
                         teamStunt.Score = teamStunt.Stunt.MaxScore;
                         teamStunt.Status = UserStuntStatusEnum.Done;
                         teamStunt.Stunt.CompletedNumber++;
+                        foreach (var teamUser in db.Users.Where(x => x.Team.Id == teamStunt.User.Team.Id).ToList())
+                        {
+                            teamUser.Rank = teamUser.Team.GetRank(teamUser.Score);
+                        }
                     }
                     else
                     {

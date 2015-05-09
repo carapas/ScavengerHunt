@@ -9,6 +9,9 @@
 <table class="table">
     <tr>
         <th>
+            @Resources.Position
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.FullName)
         </th>
         <th>
@@ -25,36 +28,43 @@
         </th>
     </tr>
 
-@foreach (var item in Model) {
-    if (item.Team != null)
-     {
-         <tr>
-             <td>
-                 @Html.DisplayFor(modelItem => item, "UserName")
-            </td>
-             <td>
-                 @Html.DisplayFor(modelItem => item.Team.Name)
-             </td>
-             @if (item.Rank != null)
-             {
-                 <td>
-                     <img src="@Html.DisplayFor(modelItem => item.Rank.Icon)" title="@Html.DisplayFor(modelItem => item.Rank.Name)" />
-                 </td>
-             }
-             else
-             {
-                <td>
-                    No rank
-                </td>
-             }
-             <td>
-                 @Html.DisplayFor(modelItem => item.Score)
-             </td>
-             <td>
-                 @Html.DisplayFor(modelItem => item.AchievementPoints)
-             </td>
-         </tr>
-     }
-}
-
+    @{
+        int i = 0;
+        foreach (var item in Model)
+        {
+            if (item.Team != null)
+            {
+                i++;
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => i)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item, "UserName")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Team.Name)
+                    </td>
+                    @if (item.Rank != null)
+                    {
+                        <td>
+                            <img src="@Html.DisplayFor(modelItem => item.Rank.Icon)" title="@Html.DisplayFor(modelItem => item.Rank.Name)"/>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            No rank
+                        </td>
+                    }
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Score)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AchievementPoints)
+                    </td>
+                </tr>
+            }
+        }
+    }
 </table>

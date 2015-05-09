@@ -65,7 +65,10 @@ namespace ScavengerHunt.Web.Controllers
                     userStunt.Stunt.CompletedNumber++;
                 }
 
-                user.Rank = user.Team.GetRank(user.Score);
+                foreach (var teamUser in db.Users.Where(x => x.Team.Id == user.Team.Id).ToList())
+                {
+                    teamUser.Rank = teamUser.Team.GetRank(teamUser.Score);
+                }
 
                 db.Entry(userStunt).State = EntityState.Modified;
                 db.Entry(user).State = EntityState.Modified;

@@ -59,19 +59,20 @@ namespace ScavengerHunt.Web.Models
         /// <summary>
         /// Not started by the team yet
         /// </summary>
-        [Display(Name = "Available")]
+        /// 
+       [Display(ResourceType = typeof(Resources.Resources), Name = "Available")]
         Available,
 
         /// <summary>
         /// Pending judgement
         /// </summary>
-        [Display(Name = "Sent")]
+        [Display(ResourceType = typeof(Resources.Resources), Name = "Pending")]
         Pending,
 
         /// <summary>
         /// Judged
         /// </summary>
-        [Display(Name = "Judged")]
+        [Display(ResourceType = typeof(Resources.Resources), Name = "Done")]
         Done
     }
 }

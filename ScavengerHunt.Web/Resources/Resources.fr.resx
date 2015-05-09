@@ -196,7 +196,7 @@
     <value>Puzzle</value>
   </data>
   <data name="StuntActivity" xml:space="preserve">
-    <value>Activité des puzzles</value>
+    <value>Activités des puzzles</value>
   </data>
   <data name="StuntList" xml:space="preserve">
     <value>Liste des défis</value>
@@ -208,7 +208,7 @@
     <value>Liste des puzzles</value>
   </data>
   <data name="TeamStatus" xml:space="preserve">
-    <value>Vos {0} membres ont ramassés un total de {1} points en {2} puzzles</value>
+    <value>Vos {0} membres ont ramassé un total de {1} points en {2} puzzles</value>
   </data>
   <data name="Team_notes" xml:space="preserve">
     <value>Notes de l'équipe</value>
@@ -232,7 +232,7 @@
     <value>Asigner</value>
   </data>
   <data name="capped" xml:space="preserve">
-    <value>à répondu</value>
+    <value>a répondu à</value>
   </data>
   <data name="ChangePassword" xml:space="preserve">
     <value>Modifier mot de passe</value>
@@ -473,5 +473,14 @@
   </data>
   <data name="VeryHard" xml:space="preserve">
     <value>Très difficile</value>
+  </data>
+  <data name="Available" xml:space="preserve">
+    <value>Disponible</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>En attente</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>Position</value>
   </data>
 </root>
