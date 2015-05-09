@@ -208,6 +208,11 @@
     </Compile>
     <Compile Include="GlobalizationHelper.cs" />
     <Compile Include="MarkdownHelper.cs" />
+    <Compile Include="Migrations\201505062239125_InitialCreate.cs" />
+    <Compile Include="Migrations\201505062239125_InitialCreate.Designer.cs">
+      <DependentUpon>201505062239125_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Achievement.cs" />
@@ -236,6 +241,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\ScavengerHuntContext.mdf" />
+    <Content Include="App_Data\ScavengerHuntContext_log.ldf">
+      <DependentUpon>ScavengerHuntContext.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -249,6 +258,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Properties\PublishProfiles\JeuxDefisPublish.pubxml" />
+    <None Include="Properties\PublishProfiles\Publish.pubxml" />
+    <None Include="Properties\PublishProfiles\Test.pubxml" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.0.js" />
     <Content Include="Scripts\jquery-2.1.0.min.js" />
@@ -369,9 +381,9 @@
     <Content Include="Views\Stunt\UserName.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\UserName.cshtml" />
     <Content Include="Views\Challenge\RunTauntaunRun.cshtml" />
+    <Content Include="Views\Home\Rules.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Views\App_LocalResources\" />
   </ItemGroup>
   <ItemGroup>
@@ -384,6 +396,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201505062239125_InitialCreate.resx">
+      <DependentUpon>201505062239125_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resources.fr.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.fr.Designer.cs</LastGenOutput>
