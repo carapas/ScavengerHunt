@@ -59,25 +59,24 @@ namespace ScavengerHunt.Web.Controllers
         }
 
         // GET: /TeamStunt/Description
-        public ActionResult Description(int? id)
+        public ActionResult Description(int? stuntId)
         {
-            if (id == null)
+            if (stuntId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            UserStunt teamstunt = db.UserStunts.Find(id);
-            if (teamstunt == null) return HttpNotFound();
-
-            // Make sure the current user is registered, part of a team and have access to this stunt
             var userid = User.Identity.GetUserId();
             var user = db.Users.Find(userid);
 
+            UserStunt userStunt = db.UserStunts.FirstOrDefault(x => x.Stunt.Id == stuntId && x.User.Id == user.Id);
+            if (userStunt == null) return HttpNotFound();
+
             if (user == null) return RedirectToAction("Description", "Stunt");
             if (user.Team == null) return RedirectToAction("Start", "Team");
-            if (user.UserStunts.All(x => x.Id != id)) return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
 
-            return View(teamstunt.Globalize(Language));
+            var test = userStunt.Globalize(Language);
+            return View(userStunt.Globalize(Language));
         }
 
         // POST: /TeamStunt/Description/5
