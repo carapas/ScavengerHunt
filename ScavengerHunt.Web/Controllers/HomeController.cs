@@ -38,6 +38,11 @@ namespace ScavengerHunt.Web.Controllers
             return View();
         }
 
+        public ActionResult Rules()
+        {
+            return View();
+        }
+
         public ActionResult PartialNavBar()
         {
             // Get current user

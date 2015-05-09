@@ -278,13 +278,15 @@ namespace ScavengerHunt.Web.Controllers
 
         // POST: /Team/EditRanks/id
         [HttpPost]
-        public ActionResult EditRanks([Bind(Include = "Id,Name,ScoreToAchieve")] ICollection<Rank> ranks, int id)
+        public ActionResult EditRanks([Bind(Include = "Id,Name,ScoreToAchieve,Folder,IsLeader")] ICollection<Rank> ranks, int id)
         {
             foreach (var rank in ranks)
             {
                 var dbRank = db.Ranks.Find(rank.Id);
                 dbRank.Name = rank.Name;
                 dbRank.ScoreToAchieve = rank.ScoreToAchieve;
+                dbRank.Folder = rank.Folder;
+                dbRank.IsLeader = rank.IsLeader;
                 db.Entry(dbRank).State = EntityState.Modified;
             }
             db.SaveChanges();

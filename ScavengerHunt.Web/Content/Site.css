@@ -37,3 +37,19 @@ input[type="checkbox"].input-validation-error {
 .bg-success, .bg-warning {
     padding: 15px;
 }
+
+.navbar-inverse {
+	background-color: rgb(50,116,44);
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+	background-color: rgb(45,95,40);
+}
+
+.navbar-inverse .navbar-nav > li > a {
+	color: white;
+}
+
+.navbar-inverse .navbar-brand {
+	color: white;
+}

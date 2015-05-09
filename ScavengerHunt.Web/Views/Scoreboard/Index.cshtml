@@ -35,7 +35,7 @@
              @if (item.Rank != null)
              {
                  <td>
-                    @Html.DisplayFor(modelItem => item.Rank.Name)
+                     <img src="@Html.DisplayFor(modelItem => item.Rank.Icon)" title="@Html.DisplayFor(modelItem => item.Rank.Name)" />
                  </td>
              }
              else

@@ -97,6 +97,15 @@ namespace ScavengerHunt.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Author.
+        /// </summary>
+        public static string Author {
+            get {
+                return ResourceManager.GetString("Author", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Back to List.
         /// </summary>
         public static string BackToList {
@@ -147,6 +156,15 @@ namespace ScavengerHunt.Web.Resources {
         public static string Collapsible {
             get {
                 return ResourceManager.GetString("Collapsible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of validations.
+        /// </summary>
+        public static string CompletedNumber {
+            get {
+                return ResourceManager.GetString("CompletedNumber", resourceCulture);
             }
         }
         
@@ -250,6 +268,15 @@ namespace ScavengerHunt.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Difficulty.
+        /// </summary>
+        public static string Difficulty {
+            get {
+                return ResourceManager.GetString("Difficulty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Documentation.
         /// </summary>
         public static string Documentation {
@@ -313,6 +340,15 @@ namespace ScavengerHunt.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Folder.
+        /// </summary>
+        public static string Folder {
+            get {
+                return ResourceManager.GetString("Folder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to for.
         /// </summary>
         public static string For {
@@ -349,7 +385,7 @@ namespace ScavengerHunt.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Serious Scavenger Hunt is a free, open source web applicaiton for building, running and managing great scavenger hunts..
+        ///   Looks up a localized string similar to In a galaxy not so far away, students from the Université de Sherbrooke join their forces to resolve puzzles..
         /// </summary>
         public static string HomeJumbotronLead {
             get {
@@ -462,6 +498,15 @@ namespace ScavengerHunt.Web.Resources {
         public static string Language {
             get {
                 return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Leader?.
+        /// </summary>
+        public static string Leader {
+            get {
+                return ResourceManager.GetString("Leader", resourceCulture);
             }
         }
         
@@ -664,6 +709,15 @@ namespace ScavengerHunt.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rules.
+        /// </summary>
+        public static string Rules {
+            get {
+                return ResourceManager.GetString("Rules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         public static string Save {
@@ -673,7 +727,7 @@ namespace ScavengerHunt.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Scavenger Hunt.
+        ///   Looks up a localized string similar to Puzzle Wars.
         /// </summary>
         public static string ScavengerHunt {
             get {

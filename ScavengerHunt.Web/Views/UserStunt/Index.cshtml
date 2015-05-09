@@ -23,10 +23,19 @@
             @Html.DisplayNameFor(model => model.Stunt.Type)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Stunt.Difficulty)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Score)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stunt.Author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stunt.CompletedNumber)
         </th>
         <th>
             @Resources.Notes
@@ -50,16 +59,22 @@
             @Html.DisplayFor(modelItem => item.Stunt.Type)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.Stunt.Difficulty)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item, "Score")
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Status)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.JudgeFeedback, "Tooltip", new { Text = "Judge" })
+            @Html.DisplayFor(modelItem => item.Stunt.Author)
         </td>
         <td>
-            @Html.ActionLink(Resources.Edit, "Edit", new { id = item.Id })
+            @Html.DisplayFor(modelItem => item.Stunt.CompletedNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JudgeFeedback, "Tooltip", new { Text = "Judge" })
         </td>
     </tr>
 }
@@ -90,6 +105,12 @@
                 @Html.DisplayNameFor(model => model.Status)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Stunt.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stunt.CompletedNumber)
+            </th>
+            <th>
                 @Resources.Notes
             </th>
             <th></th>
@@ -117,10 +138,13 @@
                     @Html.DisplayFor(modelItem => item.Status)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.JudgeFeedback, "Tooltip", new { Text = "Judge" })
+                    @Html.DisplayFor(modelItem => item.Stunt.Author)
                 </td>
                 <td>
-                    @Html.ActionLink(Resources.Edit, "Edit", new { id = item.Id })
+                    @Html.DisplayFor(modelItem => item.Stunt.CompletedNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JudgeFeedback, "Tooltip", new { Text = "Judge" })
                 </td>
             </tr>
         }

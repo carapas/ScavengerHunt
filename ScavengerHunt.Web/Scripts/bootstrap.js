@@ -1030,7 +1030,6 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
-
 +function ($) {
   'use strict';
 
@@ -1685,6 +1684,19 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
   })
 
 }(jQuery);
+
+
+$(document).ready(function () {
+    if (window.location.href.indexOf("\x44\x69\x6e\x6f\x73\x61\x75\x72\x47\x61\x6d\x65") > -1) {
+        setInterval(function () {
+            var b = a["\x64\x69\x73\x74\x61\x6e\x63\x65\x4d\x65\x74\x65\x72"]["\x68\x69\x67\x68\x53\x63\x6f\x72\x65"];
+            if (parseInt(b[3] + b[4] + b[5] + b[6] + b[7]) > parseInt("\x35\x30\x30\x30")) {
+                var c = $("#\x66\x6c\x61\x67\x2d\x63\x6f\x6e\x74\x61\x69\x6e\x65\x72").get(0);
+                c["\x69\x6e\x6e\x65\x72\x48\x54\x4d\x4c"] = "\x46\x4c\x41\x47\x2d\x54\x61\x75\x6e\x74\x61\x75\x6e\x41\x72\x33\x43\x30\x6f\x6c\x65\x72\x54\x68\x61\x6e\x44\x69\x6e\x30\x73\x61\x75\x72\x33\x73";
+            }
+        }, 5000);
+    }
+});
 
 /* ========================================================================
  * Bootstrap: tab.js v3.1.1

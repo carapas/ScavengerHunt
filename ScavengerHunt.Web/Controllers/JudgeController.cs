@@ -47,7 +47,7 @@ namespace ScavengerHunt.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="Id,Score,JudgeNotes,JudgeFeedback,Status")] UserStunt teamstunt)
+        public ActionResult Edit([Bind(Include="Id,Score,JudgeNotes,JudgeFeedback")] UserStunt teamstunt)
         {
             if (ModelState.IsValid)
             {
@@ -57,9 +57,13 @@ namespace ScavengerHunt.Web.Controllers
 
                 userStunt.DateUpdated = DateTime.Now;
                 userStunt.Score = teamstunt.Score;
-                userStunt.Status = teamstunt.Status;
+                userStunt.Status = UserStuntStatusEnum.Done;
                 userStunt.JudgeFeedback = teamstunt.JudgeFeedback;
                 userStunt.JudgeNotes = teamstunt.JudgeNotes;
+                if (userStunt.Score != 0)
+                {
+                    userStunt.Stunt.CompletedNumber++;
+                }
 
                 user.Rank = user.Team.GetRank(user.Score);
 

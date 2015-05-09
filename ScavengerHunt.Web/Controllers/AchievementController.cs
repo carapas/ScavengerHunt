@@ -33,17 +33,16 @@ namespace ScavengerHunt.Web.Controllers
             return View(db.Achievement.ToList().OrderBy(x => x.Name));
         }
 
-
         // GET: Achievement
         public ActionResult Index()
         {
-            return View(db.Achievement.OrderBy(x => x.Name).ToList());
+            return View(db.Achievement.OrderBy(x => x.IsSecret).ToList());
         }
 
         // GET: Achievement
         public ActionResult IndexPartial()
         {
-            return View(db.Achievement.ToList().OrderBy(x => x.Name));
+            return View(db.Achievement.OrderBy(x => x.IsSecret).ToList());
         }
 
         // GET: Achievement/Create

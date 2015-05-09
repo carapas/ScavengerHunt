@@ -11,6 +11,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using ScavengerHunt.Web.Models;
+using System.Data.Entity;
 
 namespace ScavengerHunt.Web.Controllers
 {
@@ -68,8 +69,7 @@ namespace ScavengerHunt.Web.Controllers
                     if (isSuccess)
                     {
                         string username = xDoc.Descendants(cas + "user").FirstOrDefault().Value;
-                        string matricule = xDoc.Descendants(cas + "matriculeEtudiant").FirstOrDefault().Value;
-                        var user = await UserManager.FindAsync(username, matricule);
+                        var user = await UserManager.FindAsync(username, username);
                         if (user != null)
                         {
                             await SignInAsync(user, false);
@@ -78,8 +78,7 @@ namespace ScavengerHunt.Web.Controllers
                         {
                             //Register
                             var newUser = new ApplicationUser() { UserName = username,
-                                                                  FullName = xDoc.Descendants(cas + "nomAffichage").FirstOrDefault().Value,
-                                                                  Email = xDoc.Descendants(cas + "courriel").FirstOrDefault().Value
+                                                                  FullName = username
                             };
                             newUser.UserStunts = new List<UserStunt>();
                             foreach (var stunt in db.Stunts)
@@ -90,10 +89,20 @@ namespace ScavengerHunt.Web.Controllers
                                     Status = UserStuntStatusEnum.Available,
                                     User = user
                                 });
-
                             }
 
-                            var result = await UserManager.CreateAsync(newUser, matricule);
+                            newUser.UserAchievement = new List<UserAchievement>();
+                            foreach (var achievement in db.Achievement)
+                            {
+                                newUser.UserAchievement.Add(new UserAchievement()
+                                {
+                                    Achievement = achievement,
+                                    IsAssigned = false,
+                                    User = user
+                                });
+                            }
+
+                            var result = await UserManager.CreateAsync(newUser, username);
                             if (result.Succeeded)
                             {
                                 await SignInAsync(newUser, isPersistent: false);
@@ -153,7 +162,6 @@ namespace ScavengerHunt.Web.Controllers
             IdentityResult result = await UserManager.RemoveLoginAsync(User.Identity.GetUserId(), new UserLoginInfo(loginProvider, providerKey));
             if (result.Succeeded)
             {
-                message = ManageMessageId.RemoveLoginSuccess;
             }
             else
             {
@@ -167,65 +175,32 @@ namespace ScavengerHunt.Web.Controllers
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
-                : message == ManageMessageId.Error ? "An error has occurred."
-                : "";
-            ViewBag.HasLocalPassword = HasPassword();
+            message == ManageMessageId.ChangeSuccess ? "Your account has been updated."
+            : message == ManageMessageId.Error ? "An error has occurred."
+            : "";
+            var user = UserManager.FindById(User.Identity.GetUserId());
             ViewBag.ReturnUrl = Url.Action("Manage");
-            return View();
+            return View(user);
         }
 
         //
         // POST: /Account/Manage
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Manage(ManageUserViewModel model)
+        public async Task<ActionResult> Manage([Bind(Include = "Id,FullName,Email")] string id, string fullName, string email)
         {
-            bool hasPassword = HasPassword();
-            ViewBag.HasLocalPassword = hasPassword;
-            ViewBag.ReturnUrl = Url.Action("Manage");
-            if (hasPassword)
+            var user = UserManager.FindById(id);
+            if (ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
-                    if (result.Succeeded)
-                    {
-                        return RedirectToAction("Manage", new { Message = ManageMessageId.ChangePasswordSuccess });
-                    }
-                    else
-                    {
-                        AddErrors(result);
-                    }
-                }
-            }
-            else
-            {
-                // User does not have a password so remove any validation errors caused by a missing OldPassword field
-                ModelState state = ModelState["OldPassword"];
-                if (state != null)
-                {
-                    state.Errors.Clear();
-                }
-
-                if (ModelState.IsValid)
-                {
-                    IdentityResult result = await UserManager.AddPasswordAsync(User.Identity.GetUserId(), model.NewPassword);
-                    if (result.Succeeded)
-                    {
-                        return RedirectToAction("Manage", new { Message = ManageMessageId.SetPasswordSuccess });
-                    }
-                    else
-                    {
-                        AddErrors(result);
-                    }
-                }
+                user.FullName = fullName;
+                user.Email = email;
+                db.Entry(user).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Manage", new { Message = ManageMessageId.ChangeSuccess });
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return RedirectToAction("Manage", new { Message = ManageMessageId.Error });
         }
 
         //
@@ -511,9 +486,7 @@ namespace ScavengerHunt.Web.Controllers
 
         public enum ManageMessageId
         {
-            ChangePasswordSuccess,
-            SetPasswordSuccess,
-            RemoveLoginSuccess,
+            ChangeSuccess,
             Error
         }
 

@@ -29,7 +29,9 @@ namespace ScavengerHunt.Web.Controllers
                return RedirectToAction("Index", "Achievement");
             }
 
-            return View(db.UserAchievement.OrderByDescending(x => x.IsAssigned).ToList());
+            var list = db.UserAchievement.Where(x => x.IsAssigned).ToList();
+            list.AddRange(db.UserAchievement.Where(x => !x.IsAssigned).OrderBy(x => x.Achievement.IsSecret).ToList());
+            return View(list);
         }
 
         // GET: UserAchievement

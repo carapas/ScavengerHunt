@@ -139,7 +139,7 @@
     <value>Modifier</value>
   </data>
   <data name="HomeJumbotronLead" xml:space="preserve">
-    <value>Les puzzles whatever sont des petits défis et challenges informatiques réguliers</value>
+    <value>Dans une galaxie pas si lointaine, des étudiants de l'Université de Sherbrooke unissent leurs forces pour résoudre des puzzles plus difficiles les uns que les autres.</value>
   </data>
   <data name="Join" xml:space="preserve">
     <value>Joindre</value>
@@ -175,7 +175,7 @@
     <value>Enregistrer</value>
   </data>
   <data name="ScavengerHunt" xml:space="preserve">
-    <value>Chasse au trésor</value>
+    <value>La guerre des puzzles</value>
   </data>
   <data name="ShortDescription" xml:space="preserve">
     <value>Description courte</value>
@@ -419,5 +419,23 @@
   </data>
   <data name="Secret" xml:space="preserve">
     <value>Secret</value>
+  </data>
+  <data name="Folder" xml:space="preserve">
+    <value>Dossier</value>
+  </data>
+  <data name="Leader" xml:space="preserve">
+    <value>Meneur?</value>
+  </data>
+  <data name="Author" xml:space="preserve">
+    <value>Auteur</value>
+  </data>
+  <data name="CompletedNumber" xml:space="preserve">
+    <value>Nombre de validations</value>
+  </data>
+  <data name="Difficulty" xml:space="preserve">
+    <value>Difficulté</value>
+  </data>
+  <data name="Rules" xml:space="preserve">
+    <value>Règles</value>
   </data>
 </root>
