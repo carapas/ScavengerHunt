@@ -304,6 +304,15 @@ namespace ScavengerHunt.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Easy.
+        /// </summary>
+        public static string Easy {
+            get {
+                return ResourceManager.GetString("Easy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit.
         /// </summary>
         public static string Edit {
@@ -376,6 +385,15 @@ namespace ScavengerHunt.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hard.
+        /// </summary>
+        public static string Hard {
+            get {
+                return ResourceManager.GetString("Hard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Has slideshow.
         /// </summary>
         public static string HasSlideshow {
@@ -417,6 +435,15 @@ namespace ScavengerHunt.Web.Resources {
         public static string Image {
             get {
                 return ResourceManager.GetString("Image", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Insane.
+        /// </summary>
+        public static string Insane {
+            get {
+                return ResourceManager.GetString("Insane", resourceCulture);
             }
         }
         
@@ -561,6 +588,15 @@ namespace ScavengerHunt.Web.Resources {
         public static string MaximumScore {
             get {
                 return ResourceManager.GetString("MaximumScore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Medium.
+        /// </summary>
+        public static string Medium {
+            get {
+                return ResourceManager.GetString("Medium", resourceCulture);
             }
         }
         
@@ -1056,6 +1092,15 @@ namespace ScavengerHunt.Web.Resources {
         public static string Value {
             get {
                 return ResourceManager.GetString("Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Very hard.
+        /// </summary>
+        public static string VeryHard {
+            get {
+                return ResourceManager.GetString("VeryHard", resourceCulture);
             }
         }
         
