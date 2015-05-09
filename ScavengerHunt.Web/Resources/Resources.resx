@@ -459,19 +459,4 @@
   <data name="Rules6" xml:space="preserve">
     <value>Have fun and good luck, may the best team win!</value>
   </data>
-  <data name="Easy" xml:space="preserve">
-    <value>Easy</value>
-  </data>
-  <data name="Hard" xml:space="preserve">
-    <value>Hard</value>
-  </data>
-  <data name="Insane" xml:space="preserve">
-    <value>Insane</value>
-  </data>
-  <data name="Medium" xml:space="preserve">
-    <value>Medium</value>
-  </data>
-  <data name="VeryHard" xml:space="preserve">
-    <value>Very hard</value>
-  </data>
 </root>

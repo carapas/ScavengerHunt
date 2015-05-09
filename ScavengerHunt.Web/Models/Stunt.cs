@@ -77,16 +77,11 @@ namespace ScavengerHunt.Web.Models
 
     public enum DifficultyEnum
     {
-        [Display(ResourceType = typeof(Resources.Resources), Name = "Easy")]
-        Easy,
-        [Display(ResourceType = typeof(Resources.Resources), Name = "Medium")]
+        Facile,
         Medium,
-        [Display(ResourceType = typeof(Resources.Resources), Name = "Hard")]
-        Hard,
-        [Display(ResourceType = typeof(Resources.Resources), Name = "VeryHard")]
-        VeryHard,
-        [Display(ResourceType = typeof(Resources.Resources), Name = "Insane")]
-        Insane
+        Difficile,
+        TrèsDifficile,
+        Dément
     }
 
     public enum StuntTypeEnum // TODO: À définir les types et ce que ça implique dans le système
