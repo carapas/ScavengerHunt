@@ -20,6 +20,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Score)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AchievementPoints)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -46,6 +49,9 @@
              }
              <td>
                  @Html.DisplayFor(modelItem => item.Score)
+             </td>
+             <td>
+                 @Html.DisplayFor(modelItem => item.AchievementPoints)
              </td>
          </tr>
      }

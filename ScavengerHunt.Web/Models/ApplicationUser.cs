@@ -36,6 +36,15 @@ namespace ScavengerHunt.Web.Models
                 return UserStunts.Sum(x => x.Score);
             }
         }
+
+        [Display(Name = "AchievementPoints", ResourceType = typeof(Resources.Resources))]
+        public virtual int AchievementPoints
+        {
+            get
+            {
+                return UserAchievement.Where(x => x.IsAssigned).Sum(x => x.Achievement.Points);
+            }
+        }
     }
 
     public class IdentityManager

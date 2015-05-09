@@ -438,4 +438,7 @@
   <data name="Rules" xml:space="preserve">
     <value>Règles</value>
   </data>
+  <data name="AchievementPoints" xml:space="preserve">
+    <value>Points de succès</value>
+  </data>
 </root>
