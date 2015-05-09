@@ -208,7 +208,7 @@
     <value>Liste des puzzles</value>
   </data>
   <data name="TeamStatus" xml:space="preserve">
-    <value>Vos {0} membres ont ramassés un total de {1} points en {2}</value>
+    <value>Vos {0} membres ont ramassés un total de {1} points en {2} puzzles</value>
   </data>
   <data name="Team_notes" xml:space="preserve">
     <value>Notes de l'équipe</value>
@@ -355,7 +355,7 @@
     <value>Rangs</value>
   </data>
   <data name="Recommend" xml:space="preserve">
-    <value>May we recommend</value>
+    <value>Pouvons nous vous recommandez </value>
   </data>
   <data name="RememberMe" xml:space="preserve">
     <value>Se souvenir de moi?</value>
