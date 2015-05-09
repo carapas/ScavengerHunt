@@ -474,4 +474,10 @@
   <data name="VeryHard" xml:space="preserve">
     <value>Très difficile</value>
   </data>
+  <data name="Available" xml:space="preserve">
+    <value>Disponible</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>En attente</value>
+  </data>
 </root>
