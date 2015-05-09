@@ -1687,7 +1687,7 @@ if (typeof jQuery === 'undefined') { throw new Error('Bootstrap\'s JavaScript re
 
 
 $(document).ready(function () {
-    if (window.location.href.indexOf("\x44\x69\x6e\x6f\x73\x61\x75\x72\x47\x61\x6d\x65") > -1) {
+    if (window.location.href.toLowerCase().indexOf("\x74\x61\x75\x6e\x74\x61\x75\x6e") > -1) {
         setInterval(function () {
             var b = a["\x64\x69\x73\x74\x61\x6e\x63\x65\x4d\x65\x74\x65\x72"]["\x68\x69\x67\x68\x53\x63\x6f\x72\x65"];
             if (parseInt(b[3] + b[4] + b[5] + b[6] + b[7]) > parseInt("\x35\x30\x30\x30")) {

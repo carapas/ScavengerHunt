@@ -77,11 +77,11 @@ namespace ScavengerHunt.Web.Models
 
     public enum DifficultyEnum
     {
-        Facile,
+        Easy,
         Medium,
-        Difficile,
-        TrèsDifficile,
-        Dément
+        Hard,
+        VeryHard,
+        Insane
     }
 
     public enum StuntTypeEnum // TODO: À définir les types et ce que ça implique dans le système
