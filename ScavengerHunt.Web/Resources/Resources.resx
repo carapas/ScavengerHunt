@@ -121,13 +121,13 @@
     <value>Puzzle Wars</value>
   </data>
   <data name="StuntList" xml:space="preserve">
-    <value>Stunt List</value>
+    <value>Puzzle list</value>
   </data>
   <data name="BonusPoints" xml:space="preserve">
     <value>Bonus Points</value>
   </data>
   <data name="Stunts" xml:space="preserve">
-    <value>Stunts</value>
+    <value>Puzzles</value>
   </data>
   <data name="Team_notes" xml:space="preserve">
     <value>Team notes</value>
@@ -181,13 +181,13 @@
     <value>You are already part of a team and are ready to rock!</value>
   </data>
   <data name="Stunt" xml:space="preserve">
-    <value>Stunt</value>
+    <value>Puzzle</value>
   </data>
   <data name="StuntActivity" xml:space="preserve">
-    <value>Stunt Activity</value>
+    <value>Puzzle activity</value>
   </data>
   <data name="TeamStatus" xml:space="preserve">
-    <value>Your {0} members have amassed a total of {1} points in {2} stunts.</value>
+    <value>Your {0} members have amassed a total of {1} points in {2} puzzles.</value>
   </data>
   <data name="YourTokenIs" xml:space="preserve">
     <value>Your secret token is</value>
