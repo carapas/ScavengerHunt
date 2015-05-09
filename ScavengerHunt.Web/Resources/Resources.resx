@@ -460,7 +460,7 @@
     <value>Have fun and good luck, may the best team win!</value>
   </data>
   <data name="Easy" xml:space="preserve">
-    <value>Facile</value>
+    <value>Easy</value>
   </data>
   <data name="Hard" xml:space="preserve">
     <value>Hard</value>
@@ -479,5 +479,8 @@
   </data>
   <data name="Pending" xml:space="preserve">
     <value>Pending</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>Position</value>
   </data>
 </root>
